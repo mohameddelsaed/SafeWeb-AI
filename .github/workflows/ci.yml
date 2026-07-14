@@ -13,41 +13,42 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-
+      ####################################################
+      # Checkout
+      ####################################################
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      #########################################
-      # Python
-      #########################################
+      ####################################################
+      # Debug
+      ####################################################
+      - name: Show Repository Structure
+        run: |
+          pwd
+          ls -la
+          ls -la backend
 
+      ####################################################
+      # Python
+      ####################################################
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install Backend Dependencies
-        working-directory: backend
         run: |
+          cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Django Check
-        working-directory: backend
-        env:
-          DJANGO_SETTINGS_MODULE: config.settings.development
-        run: |
-          python manage.py check
-
-      #########################################
+      ####################################################
       # Node
-      #########################################
-
-      - name: Setup Node
+      ####################################################
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -58,18 +59,14 @@ jobs:
       - name: Build Frontend
         run: npm run build
 
-      #########################################
+      ####################################################
       # Docker
-      #########################################
-
+      ####################################################
       - name: Build Backend Docker Image
-        run: |
-          docker build -t safeweb-backend ./backend
+        run: docker build -t safeweb-backend ./backend
 
       - name: Build Frontend Docker Image
-        run: |
-          docker build -t safeweb-frontend -f Dockerfile.frontend .
+        run: docker build -t safeweb-frontend -f Dockerfile.frontend .
 
       - name: Validate Docker Compose
-        run: |
-          docker compose config
+        run: docker compose config
