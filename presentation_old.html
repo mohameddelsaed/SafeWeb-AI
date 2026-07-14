@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeWeb AI - Graduation Project Presentation</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === GLOBAL DESIGN SYSTEM === */
+        :root {
+            /* Backgrounds */
+            --bg-slide: #050607;
+            --bg-panel: #0A0C0E;
+            --bg-card: rgba(18, 21, 26, 0.8);
+            --bg-hover: #1A1D23;
+            
+            /* Accents */
+            --neon-green: #00FF88;
+            --green-hover: #00E67A;
+            --electric-blue: #3AA9FF;
+            --blue-hover: #2E95E8;
+            
+            /* Severity Colors */
+            --sev-critical: #FF3B3B;
+            --sev-high: #FF8A3D;
+            --sev-medium: #FFD93D;
+            --sev-low: #6BCF7F;
+            
+            /* Text */
+            --text-primary: #FFFFFF;
+            --text-body: #B0B8C1;
+            --text-muted: #6B7280;
+            
+            /* Borders */
+            --border-default: #1F2937;
+            --border-active: #00FF88;
+        }
+
+        body {
+            background-color: var(--bg-slide);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Matrix Rain Canvas */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .reveal {
+            z-index: 1;
+        }
+
+        /* Scan Lines Overlay */
+        .reveal::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* Typography Override for Reveal */
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            text-transform: none;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal h1 { font-size: 72px; font-weight: 700; margin-bottom: 20px; }
+        .reveal h2 { font-size: 48px; font-weight: 700; margin-bottom: 40px; }
+        .reveal h3 { font-size: 24px; font-weight: 600; }
+        .reveal p, .reveal li { font-size: 20px; color: var(--text-body); line-height: 1.6; }
+        
+        .code-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--neon-green);
+            font-size: 16px;
+        }
+
+        /* === EFFECTS & COMPONENTS === */
+        
+        /* Glassmorphic Card */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-default);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
+            border-color: var(--border-active);
+        }
+
+        /* Layout Grids */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+
+        /* Neon Glows */
+        .glow-green { text-shadow: 0 0 15px rgba(0, 255, 136, 0.5); color: var(--neon-green) !important; }
+        .glow-blue { text-shadow: 0 0 15px rgba(58, 169, 255, 0.5); color: var(--electric-blue) !important; }
+        .glow-red { text-shadow: 0 0 15px rgba(255, 59, 59, 0.5); color: var(--sev-critical) !important; }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+            color: var(--neon-green);
+            display: inline-block;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-slide);
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(20px, 9999px, 15px, 0); }
+            20% { clip: rect(60px, 9999px, 50px, 0); }
+            40% { clip: rect(10px, 9999px, 40px, 0); }
+            60% { clip: rect(80px, 9999px, 30px, 0); }
+            80% { clip: rect(30px, 9999px, 80px, 0); }
+            100% { clip: rect(50px, 9999px, 20px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(40px, 9999px, 10px, 0); }
+            40% { clip: rect(70px, 9999px, 50px, 0); }
+            60% { clip: rect(20px, 9999px, 80px, 0); }
+            80% { clip: rect(90px, 9999px, 20px, 0); }
+            100% { clip: rect(30px, 9999px, 60px, 0); }
+        }
+
+        /* Typewriter & Terminal */
+        .terminal-line {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--neon-green);
+            animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 4px;
+        }
+        
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-green); } }
+
+        /* Architecture Traces */
+        .trace-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+            width: 100%;
+            position: relative;
+            opacity: 0.5;
+        }
+        .trace-line::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -100%;
+            width: 20px;
+            height: 6px;
+            background: var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: trace-anim 3s linear infinite;
+        }
+        @keyframes trace-anim { to { left: 100%; } }
+
+        /* Pipeline */
+        .pipeline-container { display: flex; align-items: center; justify-content: space-between; margin: 40px 0; }
+        .pipeline-arrow { color: var(--neon-green); font-size: 24px; font-weight: bold; animation: pulse-arrow 1.5s infinite; }
+        @keyframes pulse-arrow { 0%, 100% { opacity: 0.5; transform: translateX(0); } 50% { opacity: 1; transform: translateX(5px); } }
+
+        /* Severity Indicators */
+        .sev-critical { border-left: 4px solid var(--sev-critical) !important; }
+        .sev-high { border-left: 4px solid var(--sev-high) !important; }
+        .sev-medium { border-left: 4px solid var(--sev-medium) !important; }
+        .sev-low { border-left: 4px solid var(--sev-low) !important; }
+
+        /* Progress Bars */
+        .progress-track { background: rgba(255,255,255,0.1); border-radius: 4px; height: 12px; width: 100%; overflow: hidden; margin-top: 5px; }
+        .progress-fill { background: linear-gradient(90deg, var(--neon-green), var(--electric-blue)); height: 100%; border-radius: 4px; }
+
+        /* Timeline */
+        .timeline-container { display: flex; align-items: flex-start; justify-content: space-between; margin-top: 60px; position: relative; padding-top: 20px; }
+        .timeline-line { position: absolute; top: 30px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--neon-green), var(--electric-blue)); z-index: 0; }
+        .timeline-dot { width: 20px; height: 20px; background: var(--bg-slide); border: 3px solid var(--neon-green); border-radius: 50%; box-shadow: 0 0 10px var(--neon-green); margin: 0 auto 15px auto; position: relative; z-index: 1; }
+
+        /* Donut Chart */
+        .donut-chart { width: 200px; height: 200px; border-radius: 50%; background: conic-gradient(var(--sev-critical) 0% 11%, var(--sev-high) 11% 45%, var(--sev-medium) 45% 73%, var(--sev-low) 73% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .donut-inner { width: 140px; height: 140px; background: var(--bg-slide); border-radius: 50%; }
+
+        /* Screenshot Frame */
+        .screenshot-frame { border: 1px solid var(--border-active); border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 0 20px rgba(0,255,136,0.2); transform: perspective(1000px) rotateY(-2deg); transition: transform 0.5s ease; background: var(--bg-panel); display: flex; align-items: center; justify-content: center; color: var(--text-muted); min-height: 400px; }
+        .screenshot-frame:hover { transform: perspective(1000px) rotateY(0deg); }
+
+        /* Utilities */
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 40px; }
+        .text-muted { color: var(--text-muted) !important; font-size: 16px !important; }
+        .flex-center { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .list-unstyled { list-style: none; padding: 0; margin: 0; }
+        .list-unstyled li { margin-bottom: 15px; }
+        .gradient-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), var(--electric-blue), transparent);
+            margin: 40px 0;
+            width: 60%;
+            display: inline-block;
+        }
+
+        /* Flow Diagram */
+        .flow-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        .flow-arrow {
+            color: var(--neon-green);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            text-align: center;
+        }
+        .comparison-table th {
+            padding: 12px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-default);
+        }
+        .comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(31,41,55,0.5);
+            color: var(--text-body);
+        }
+        .comparison-table .highlight-col {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 2px solid var(--neon-green);
+            border-right: 2px solid var(--neon-green);
+        }
+        .comparison-table .highlight-col-header {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 2px solid var(--neon-green);
+            border-right: 2px solid var(--neon-green);
+            border-top: 2px solid var(--neon-green);
+            color: var(--neon-green) !important;
+        }
+
+        /* Slide section default styling */
+        .reveal .slides section {
+            padding: 40px;
+        }
+
+        .glow-blue {
+            text-shadow: 0 0 15px rgba(58, 169, 255, 0.5);
+            color: var(--electric-blue) !important;
+        }
+
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ============================================ -->
+            <!-- SLIDE 1: TITLE / COVER                       -->
+            <!-- ============================================ -->
+            <section class="flex-center">
+                <div style="border: 2px solid; border-image: linear-gradient(to right, var(--neon-green), var(--electric-blue)) 1; border-radius: 12px; width: 60px; height: 60px; display: inline-flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                    <span style="color: white; font-family: 'Space Grotesk'; font-weight: bold; font-size: 24px;">SW</span>
+                </div>
+                
+                <h1 class="glitch glow-green" data-text="SafeWeb AI">SafeWeb AI</h1>
+                <p style="font-size: 24px; color: var(--text-body);">AI-Powered Web Application Vulnerability Scanner</p>
+                
+                <div class="code-text terminal-line">
+                    $ safeweb-ai --scan --protect --defend
+                </div>
+                
+                <div style="text-align: center; width: 100%;">
+                    <div class="gradient-divider"></div>
+                </div>
+
+                <p style="color: var(--text-primary); font-weight: 500;">[Your Name Here]</p>
+                <p class="text-muted">Graduation Project Discussion &middot; [University Name] &middot; March 2026</p>
+                <p class="text-muted">Supervisor: [Professor Name]</p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 2: AGENDA                              -->
+            <!-- ============================================ -->
+            <section>
+                <h2 class="text-left">Agenda</h2>
+                <div class="grid-2 text-left">
+                    <div>
+                        <ul class="list-unstyled" style="column-count: 2; column-gap: 40px;">
+                            <li class="fragment fade-up"><span class="code-text">01</span> Motivation</li>
+                            <li class="fragment fade-up"><span class="code-text">02</span> Objectives</li>
+                            <li class="fragment fade-up"><span class="code-text">03</span> Solution Overview</li>
+                            <li class="fragment fade-up"><span class="code-text">04</span> Architecture</li>
+                            <li class="fragment fade-up"><span class="code-text">05</span> Tech Stack</li>
+                            <li class="fragment fade-up"><span class="code-text">06</span> Scan Engine</li>
+                            <li class="fragment fade-up"><span class="code-text">07</span> AI/ML Models</li>
+                            <li class="fragment fade-up"><span class="code-text">08</span> AI Chatbot</li>
+                            <li class="fragment fade-up"><span class="code-text">09</span> UI Showcase</li>
+                            <li class="fragment fade-up"><span class="code-text">10</span> Live Demo</li>
+                        </ul>
+                    </div>
+                    <div class="flex-center fragment fade-in">
+                        <svg width="200" height="250" viewBox="0 0 100 120" fill="none" stroke="var(--neon-green)" stroke-width="2" style="filter: drop-shadow(0 0 10px rgba(0,255,136,0.3));">
+                            <path d="M50 5 L10 25 V55 C10 85 50 115 50 115 C50 115 90 85 90 55 V25 Z" stroke-dasharray="5 5"/>
+                            <circle cx="50" cy="55" r="15" />
+                            <path d="M50 40 V55 M40 55 H60" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 3: THE PROBLEM                         -->
+            <!-- ============================================ -->
+            <section>
+                <h2>The Problem</h2>
+                <div style="margin: 60px 0;">
+                    <h1 class="glow-red" style="font-size: 96px; margin: 0;">30,000+</h1>
+                    <p style="font-size: 28px;">websites are hacked every single day</p>
+                </div>
+                
+                <div class="grid-3 fragment fade-up">
+                    <div class="glass-card">
+                        <div style="font-size: 40px; margin-bottom: 10px;">&#128274;</div>
+                        <h3 class="code-text" style="color: var(--sev-critical);">$4.88M</h3>
+                        <p style="font-size: 16px;">Average cost of a data breach (IBM 2024)</p>
+                    </div>
+                    <div class="glass-card">
+                        <div style="font-size: 40px; margin-bottom: 10px;">&#9201;</div>
+                        <h3 class="code-text" style="color: var(--sev-high);">277 days</h3>
+                        <p style="font-size: 16px;">Average time to identify a breach</p>
+                    </div>
+                    <div class="glass-card">
+                        <div style="font-size: 40px; margin-bottom: 10px;">&#128202;</div>
+                        <h3 class="code-text" style="color: var(--sev-medium);">60%</h3>
+                        <p style="font-size: 16px;">Small businesses close within 6 months of attack</p>
+                    </div>
+                </div>
+                
+                <p class="text-muted fragment fade-in" style="font-style: italic; margin-top: 40px;">
+                    "Manual security audits are expensive, slow, and fail to keep up with evolving threats."
+                </p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 4: OUR SOLUTION                        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Our Solution</h2>
+                <p style="font-size: 22px; max-width: 800px; margin: 0 auto 40px auto;">
+                    <span class="glow-green" style="font-weight: 600;">SafeWeb AI</span> — an intelligent, automated web application vulnerability scanner that combines traditional security testing with machine learning to deliver fast, accurate, and actionable results.
+                </p>
+
+                <div class="grid-3 fragment fade-up">
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--neon-green); margin-bottom: 15px;">&#128270; Automated Scanning</h3>
+                        <p style="font-size: 15px;">5-stage pipeline covering crawling, analysis, testing, scoring, and reporting — all without manual intervention.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--electric-blue); margin-bottom: 15px;">&#129302; AI-Powered Detection</h3>
+                        <p style="font-size: 15px;">Machine learning models for phishing URL detection (96%+ accuracy) and malware file analysis (97%+ accuracy).</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--sev-medium); margin-bottom: 15px;">&#128172; Intelligent Chatbot</h3>
+                        <p style="font-size: 15px;">AI assistant explaining vulnerabilities, remediation steps, and cybersecurity concepts in plain language.</p>
+                    </div>
+                </div>
+
+                <div class="grid-3 fragment fade-up" style="margin-top: 20px;">
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--sev-high); margin-bottom: 15px;">&#128200; CVSS 3.1 Scoring</h3>
+                        <p style="font-size: 15px;">Industry-standard severity scoring for every vulnerability, enabling prioritized remediation.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--sev-low); margin-bottom: 15px;">&#128196; Multi-Format Reports</h3>
+                        <p style="font-size: 15px;">Export detailed reports in PDF, CSV, and JSON formats for stakeholders and compliance needs.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="color: var(--text-primary); margin-bottom: 15px;">&#128736; Full-Stack Platform</h3>
+                        <p style="font-size: 15px;">Modern React + Django architecture with real-time scanning, user management, and admin panels.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 5: SYSTEM ARCHITECTURE                 -->
+            <!-- ============================================ -->
+            <section>
+                <h2>System Architecture</h2>
+                
+                <div class="grid-3" style="gap: 10px; align-items: center; margin-top: 50px;">
+                    <div class="glass-card fragment fade-right">
+                        <h3 style="color: var(--text-primary); border-bottom: 1px solid var(--border-default); padding-bottom: 10px;">FRONTEND</h3>
+                        <ul class="list-unstyled text-left" style="font-size: 16px; margin-top: 15px;">
+                            <li>React 18 &amp; TypeScript</li>
+                            <li>Vite 5</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+
+                    <div class="fragment fade-in">
+                        <span class="code-text" style="color: var(--electric-blue); font-size: 12px;">REST API</span>
+                        <div class="trace-line"></div>
+                        <div class="glass-card" style="margin: 20px 0; border-color: var(--electric-blue);">
+                            <h3 style="color: var(--text-primary); border-bottom: 1px solid var(--border-default); padding-bottom: 10px;">BACKEND API</h3>
+                            <ul class="list-unstyled text-left" style="font-size: 16px; margin-top: 15px;">
+                                <li>Django + DRF</li>
+                                <li>JWT Auth</li>
+                            </ul>
+                        </div>
+                        <div class="trace-line"></div>
+                        <span class="code-text" style="color: var(--electric-blue); font-size: 12px;">Tasks / Webhooks</span>
+                    </div>
+
+                    <div class="fragment fade-left" style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="glass-card" style="padding: 15px;">
+                            <h3 style="font-size: 18px; margin: 0;">ASYNC WORKERS</h3>
+                            <p style="font-size: 14px; margin: 5px 0 0 0;">Celery Tasks, Scan Orchestrator</p>
+                        </div>
+                        <div class="glass-card" style="padding: 15px;">
+                            <h3 style="font-size: 18px; margin: 0;">DATABASE</h3>
+                            <p style="font-size: 14px; margin: 5px 0 0 0;">PostgreSQL, Vulnerability Data</p>
+                        </div>
+                        <div class="glass-card" style="padding: 15px; border-left: 3px solid var(--neon-green);">
+                            <h3 style="font-size: 18px; margin: 0;">ML ENGINE</h3>
+                            <p style="font-size: 14px; margin: 5px 0 0 0;">scikit-learn, Threat Models</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 6: TECHNOLOGY STACK                    -->
+            <!-- ============================================ -->
+            <section>
+                <h2 class="text-left">Technology Stack</h2>
+                <div class="grid-2 text-left">
+                    <div class="glass-card fragment fade-up">
+                        <h3 class="code-text" style="border-bottom: 2px solid var(--neon-green); padding-bottom: 10px; display: inline-block;">Frontend</h3>
+                        <table style="width: 100%; margin-top: 20px; font-size: 18px;">
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">React 18</td><td style="color: var(--text-muted); text-align: right;">UI Framework</td></tr>
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">TypeScript</td><td style="color: var(--text-muted); text-align: right;">Type Safety</td></tr>
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">Vite 5</td><td style="color: var(--text-muted); text-align: right;">Build Tool</td></tr>
+                            <tr><td style="padding: 10px 0; color: var(--text-primary);">Tailwind CSS</td><td style="color: var(--text-muted); text-align: right;">Styling System</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div class="glass-card fragment fade-up" data-fragment-index="1">
+                        <h3 class="code-text" style="color: var(--electric-blue); border-bottom: 2px solid var(--electric-blue); padding-bottom: 10px; display: inline-block;">Backend &amp; AI</h3>
+                        <table style="width: 100%; margin-top: 20px; font-size: 18px;">
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">Django 5.2</td><td style="color: var(--text-muted); text-align: right;">Web Framework</td></tr>
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">Celery</td><td style="color: var(--text-muted); text-align: right;">Async Queues</td></tr>
+                            <tr><td style="padding: 10px 0; border-bottom: 1px solid var(--border-default); color: var(--text-primary);">scikit-learn</td><td style="color: var(--text-muted); text-align: right;">ML Models</td></tr>
+                            <tr><td style="padding: 10px 0; color: var(--text-primary);">GPT-4o-mini</td><td style="color: var(--text-muted); text-align: right;">AI Chatbot</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 7: SCANNING ENGINE PIPELINE            -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Scanning Engine Pipeline</h2>
+                <div class="pipeline-container">
+                    <div class="glass-card fragment" style="padding: 15px; border-color: var(--neon-green);"><h3 class="code-text">1. CRAWL</h3></div>
+                    <div class="pipeline-arrow fragment">&rarr;</div>
+                    <div class="glass-card fragment" style="padding: 15px; border-color: var(--neon-green);"><h3 class="code-text">2. ANALYZE</h3></div>
+                    <div class="pipeline-arrow fragment">&rarr;</div>
+                    <div class="glass-card fragment" style="padding: 15px; border-color: var(--neon-green);"><h3 class="code-text">3. TEST</h3></div>
+                    <div class="pipeline-arrow fragment">&rarr;</div>
+                    <div class="glass-card fragment" style="padding: 15px; border-color: var(--neon-green);"><h3 class="code-text">4. SCORE</h3></div>
+                    <div class="pipeline-arrow fragment">&rarr;</div>
+                    <div class="glass-card fragment" style="padding: 15px; border-color: var(--neon-green);"><h3 class="code-text">5. REPORT</h3></div>
+                </div>
+                <table class="fragment fade-up" style="width: 100%; font-size: 16px; margin-top: 30px; text-align: left; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid var(--border-default);">
+                        <th style="padding: 10px; color: var(--text-primary);">Stage</th>
+                        <th style="padding: 10px; color: var(--electric-blue);">Component</th>
+                        <th style="padding: 10px; color: var(--text-body);">Description</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-default);"><td style="padding: 10px; color: var(--text-primary);">1. Crawl</td><td class="code-text" style="font-size: 14px;">WebCrawler</td><td style="color: var(--text-body);">Discovers pages, links, forms, and endpoints</td></tr>
+                    <tr style="border-bottom: 1px solid var(--border-default);"><td style="padding: 10px; color: var(--text-primary);">2. Analyze</td><td class="code-text" style="font-size: 14px;">HeaderAnalyzer / SSLAnalyzer</td><td style="color: var(--text-body);">Inspects headers, TLS certificates, and cookies</td></tr>
+                    <tr style="border-bottom: 1px solid var(--border-default);"><td style="padding: 10px; color: var(--text-primary);">3. Test</td><td class="code-text" style="font-size: 14px;">10 Vulnerability Testers</td><td style="color: var(--text-body);">Tests for XSS, SQLi, CSRF, SSRF, Auth, etc.</td></tr>
+                    <tr style="border-bottom: 1px solid var(--border-default);"><td style="padding: 10px; color: var(--text-primary);">4. Score</td><td class="code-text" style="font-size: 14px;">CVSS 3.1 Calculator</td><td style="color: var(--text-body);">Calculates base scores using impact &amp; exploitability</td></tr>
+                    <tr><td style="padding: 10px; color: var(--text-primary);">5. Report</td><td class="code-text" style="font-size: 14px;">ReportGenerator</td><td style="color: var(--text-body);">Generates exportable reports in PDF, CSV, JSON</td></tr>
+                </table>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 8: VULNERABILITY DETECTION — OWASP     -->
+            <!-- ============================================ -->
+            <section>
+                <h2 style="font-size: 42px;">Vulnerability Detection &mdash; OWASP Top 10</h2>
+                <div class="grid-5" style="margin-top: 30px;">
+                    <div class="glass-card sev-critical fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">SQL Injection</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">sqli_tester.py</p><span style="font-size: 10px; color: var(--sev-critical);">A03:2021</span></div>
+                    <div class="glass-card sev-critical fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">XSS</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">xss_tester.py</p><span style="font-size: 10px; color: var(--sev-critical);">A03:2021</span></div>
+                    <div class="glass-card sev-high fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">CSRF</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">csrf_tester.py</p><span style="font-size: 10px; color: var(--sev-high);">A01:2021</span></div>
+                    <div class="glass-card sev-high fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">SSRF</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">ssrf_tester.py</p><span style="font-size: 10px; color: var(--sev-high);">A10:2021</span></div>
+                    <div class="glass-card sev-critical fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Broken Auth</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">auth_tester.py</p><span style="font-size: 10px; color: var(--sev-critical);">A07:2021</span></div>
+                    <div class="glass-card sev-critical fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Access Control</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">access_tester.py</p><span style="font-size: 10px; color: var(--sev-critical);">A01:2021</span></div>
+                    <div class="glass-card sev-high fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Data Exposure</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">data_tester.py</p><span style="font-size: 10px; color: var(--sev-high);">A02:2021</span></div>
+                    <div class="glass-card sev-medium fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Misconfig</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">misconfig_tester.py</p><span style="font-size: 10px; color: var(--sev-medium);">A05:2021</span></div>
+                    <div class="glass-card sev-medium fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Vulnerable Comps</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">comp_tester.py</p><span style="font-size: 10px; color: var(--sev-medium);">A06:2021</span></div>
+                    <div class="glass-card sev-low fragment fade-up" style="padding: 15px;"><h4 style="font-size: 16px; margin:0; color: #FFF;">Logging</h4><p class="code-text" style="font-size: 11px; margin: 5px 0;">log_tester.py</p><span style="font-size: 10px; color: var(--sev-low);">A09:2021</span></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 9: SCAN TYPES & CONFIGURATION          -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Scan Types &amp; Configuration</h2>
+                <div class="grid-3 fragment fade-up">
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px;">&#127760; Website Scan</h3>
+                        <p style="font-size: 14px;">Full website crawl with depth control. Deep vulnerability testing.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px;">&#128193; File Scan</h3>
+                        <p style="font-size: 14px;">Upload files for malware analysis (50MB limit). Signature &amp; entropy detection.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px;">&#128279; URL Scan</h3>
+                        <p style="font-size: 14px;">Quick single-URL security check. Phishing detection modeling.</p>
+                    </div>
+                </div>
+                <div class="glass-card fragment fade-up mt-4 text-left" style="background: rgba(0,0,0,0.8); border: 1px solid #333;">
+                    <pre><code class="code-text" style="font-size: 18px;">Scan Depth:         &#9675; Shallow (5-10m)  &#9679; Medium (15-30m)  &#9675; Deep (45-60m)
+Include Subdomains: [&#10003; ON]
+Check SSL:          [&#10003; ON]
+Follow Redirects:   [&#10003; ON]</code></pre>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 10: ML — PHISHING URL DETECTION        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>ML Model &mdash; Phishing URL Detection</h2>
+                <div class="grid-2 text-left">
+                    <div class="glass-card fragment fade-right">
+                        <pre><code class="code-text">Algorithm:        <span class="glow-blue">Gradient Boosting</span>
+Estimators:       100
+Max Depth:        6
+Training Samples: 5,000+
+Features:         31 URL characteristics
+Fallback:         Rule-based detection</code></pre>
+                        <p style="font-size: 12px; margin-top: 20px; color: var(--text-muted);">Prediction Output: malicious/benign + confidence score + risk score (0-100) + human-readable indicators</p>
+                    </div>
+                    <div class="fragment fade-left" style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="border-left: 2px solid var(--electric-blue); padding-left: 10px;"><strong style="color: #FFF; font-size: 14px;">Length</strong><p style="font-size: 12px; margin:0; color: var(--text-body);">url_length, hostname_length, path_length...</p></div>
+                        <div style="border-left: 2px solid var(--electric-blue); padding-left: 10px;"><strong style="color: #FFF; font-size: 14px;">Characters</strong><p style="font-size: 12px; margin:0; color: var(--text-body);">dots, hyphens, slashes, digits, specials...</p></div>
+                        <div style="border-left: 2px solid var(--electric-blue); padding-left: 10px;"><strong style="color: #FFF; font-size: 14px;">Entropy</strong><p style="font-size: 12px; margin:0; color: var(--text-body);">hostname_entropy, url_entropy (Shannon)</p></div>
+                        <div style="border-left: 2px solid var(--electric-blue); padding-left: 10px;"><strong style="color: #FFF; font-size: 14px;">Boolean Flags</strong><p style="font-size: 12px; margin:0; color: var(--text-body);">has_ip_address, has_https, has_port...</p></div>
+                        <div style="border-left: 2px solid var(--electric-blue); padding-left: 10px;"><strong style="color: #FFF; font-size: 14px;">Keywords</strong><p style="font-size: 12px; margin:0; color: var(--text-body);">has_login_keyword, tld_is_suspicious...</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 11: ML — MALWARE FILE DETECTION        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>ML Model &mdash; Malware File Detection</h2>
+                <div class="grid-2 text-left">
+                    <div class="glass-card fragment fade-right">
+                        <pre><code class="code-text">Algorithm:        <span class="glow-blue">Random Forest</span>
+Estimators:       100
+Max Depth:        10
+Training Samples: 3,000+
+Features:         9 file characteristics
+Fallback:         Hash lookup &amp; rules</code></pre>
+                    </div>
+                    <div class="fragment fade-left code-text" style="font-size: 12px; line-height: 1.8;">
+                        <div>file_size             &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;&#9618;&#9618;  High</div>
+                        <div>file_entropy          &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;  Very High</div>
+                        <div>printable_ratio       &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;  Medium</div>
+                        <div>null_byte_ratio       &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;  Medium</div>
+                        <div>script_pattern_count  &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;&#9618;&#9618;  High</div>
+                        <div>obfuscation_count     &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;&#9618;&#9618;&#9618;&#9618;  High</div>
+                        <div>has_suspicious_ext    &#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9618;&#9618;  Very High</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 12: ML MODEL PERFORMANCE METRICS       -->
+            <!-- ============================================ -->
+            <section>
+                <h2>ML Model Performance Metrics</h2>
+                <div class="grid-2 text-left mt-4">
+                    <div class="glass-card fragment fade-up">
+                        <h3 style="color: var(--electric-blue); border-bottom: 1px solid #333; padding-bottom: 10px;">Phishing Detector</h3>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Accuracy</span><span class="code-text">96.2%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 96.2%;"></div></div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Precision</span><span class="code-text">95.8%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 95.8%;"></div></div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Recall</span><span class="code-text">94.5%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 94.5%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="glass-card fragment fade-up" data-fragment-index="1">
+                        <h3 style="color: var(--electric-blue); border-bottom: 1px solid #333; padding-bottom: 10px;">Malware Detector</h3>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Accuracy</span><span class="code-text">97.1%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 97.1%;"></div></div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Precision</span><span class="code-text">96.5%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 96.5%;"></div></div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;"><span style="color:#FFF;">Recall</span><span class="code-text">95.8%</span></div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 95.8%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 13: SECURITY SCORING — CVSS 3.1        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Security Scoring &mdash; CVSS 3.1</h2>
+                <div class="terminal-line code-text fragment" style="font-size: 20px;">
+                    Base Score = roundup(min[(Impact + Exploitability), 10])
+                </div>
+                <div class="grid-3 fragment fade-up" style="margin-top: 30px; gap: 10px;">
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">Attack Vector (AV)</strong><p style="font-size:12px; margin:0;">Network / Adjacent / Local</p></div>
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">Attack Complexity (AC)</strong><p style="font-size:12px; margin:0;">Low / High</p></div>
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">Privileges Req (PR)</strong><p style="font-size:12px; margin:0;">None / Low / High</p></div>
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">User Interaction (UI)</strong><p style="font-size:12px; margin:0;">None / Required</p></div>
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">Scope (S)</strong><p style="font-size:12px; margin:0;">Changed / Unchanged</p></div>
+                    <div class="glass-card" style="padding: 15px;"><strong style="color:#FFF; font-size:14px;">CIA Impact (C/I/A)</strong><p style="font-size:12px; margin:0;">None / Low / High</p></div>
+                </div>
+                <div class="fragment fade-in" style="margin-top: 30px; width: 100%; height: 20px; background: linear-gradient(to right, #6B7280 0%, #6BCF7F 39%, #FFD93D 69%, #FF8A3D 89%, #FF3B3B 100%); border-radius: 4px; display: flex; justify-content: space-between; font-size: 12px; color: #FFF; padding: 0 5px; box-sizing: border-box; align-items: center; text-shadow: 1px 1px 2px #000;">
+                    <span>0.0 None</span><span>3.9 Low</span><span>6.9 Medium</span><span>8.9 High</span><span>10.0 Critical</span>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 14: AI CHATBOT ASSISTANT               -->
+            <!-- ============================================ -->
+            <section>
+                <h2>AI Chatbot Assistant</h2>
+                <div class="grid-2 text-left">
+                    <div class="fragment fade-right">
+                        <p style="font-size: 16px;">Intelligent cybersecurity assistant powered by a 25+ topic knowledge base with optional GPT-4o-mini integration.</p>
+                        <ul class="list-unstyled" style="color: var(--neon-green); font-size: 16px; margin-top: 20px;">
+                            <li>&#10003; Answer questions about web security</li>
+                            <li>&#10003; Explain scan results &amp; vulnerabilities</li>
+                            <li>&#10003; Provide remediation guidance</li>
+                            <li>&#10003; Context-aware (10-message history)</li>
+                            <li>&#10003; OWASP/CWE reference integration</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card flex-center fragment fade-left screenshot-frame" style="min-height: 300px;">
+                        <p>[SCREENSHOT: Chat Widget Mockup]</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 15: UI — LANDING PAGE                  -->
+            <!-- ============================================ -->
+            <section>
+                <h2>User Interface &mdash; Landing Page</h2>
+                <div class="screenshot-frame fragment fade-up">
+                    <p>[SCREENSHOT: http://localhost:5173/ Landing Page]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 16: UI — SECURITY DASHBOARD            -->
+            <!-- ============================================ -->
+            <section>
+                <h2>User Interface &mdash; Security Dashboard</h2>
+                <div class="screenshot-frame fragment fade-up">
+                    <p>[SCREENSHOT: Dashboard View]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 17: UI — SCANNING EXPERIENCE           -->
+            <!-- ============================================ -->
+            <section>
+                <h2>User Interface &mdash; Scanning Experience</h2>
+                <div class="screenshot-frame fragment fade-up">
+                    <p>[SCREENSHOT: Scan Input &rarr; Progress &rarr; Results Flow]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 18: SCAN RESULTS — DETAILED VIEW       -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Scan Results &mdash; Detailed View</h2>
+                <div class="screenshot-frame fragment fade-up">
+                    <p>[SCREENSHOT: /scan/results/uuid Detail View]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 19: ADMIN PANEL                        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Admin Panel &mdash; System Management</h2>
+                <div class="screenshot-frame fragment fade-up">
+                    <p>[SCREENSHOT: Admin DB / ML / Users Layout]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 20: REPORT GENERATION & EXPORT         -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Report Generation &amp; Export</h2>
+                <div class="grid-3 mt-4 fragment fade-up">
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px; color: var(--sev-critical);">&#128196; PDF Report</h3>
+                        <p style="font-size: 14px;">Professional formatted report with cover page, vulnerability details, and remediation steps.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px; color: var(--electric-blue);">&#128202; CSV Export</h3>
+                        <p style="font-size: 14px;">Structured data for spreadsheet analysis and SIEM integration.</p>
+                    </div>
+                    <div class="glass-card text-left">
+                        <h3 style="margin-bottom: 10px; color: var(--neon-green);">&#128203; JSON Data</h3>
+                        <p style="font-size: 14px;">Machine-readable data for API consumption and automation pipelines.</p>
+                    </div>
+                </div>
+                <p class="code-text fragment fade-in" style="margin-top: 40px; font-size: 14px;">Using ReportLab (PDF), Django HttpResponse (CSV), DRF serialization (JSON)</p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 21: DATABASE DESIGN                    -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Database Design</h2>
+                <div class="flex-center fragment fade-up" style="height: 400px; border: 1px dashed var(--border-active); border-radius: 8px;">
+                    <p class="text-muted">[INSERT ER DIAGRAM HERE: User &larr;1:N&rarr; ScanResult &larr;1:N&rarr; Vulnerability]</p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 22: SECURITY ARCHITECTURE              -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Security Architecture</h2>
+                <div class="glass-card fragment fade-up" style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <div class="grid-2" style="font-size: 18px;">
+                        <div>
+                            <p>&#128274; JWT Auth (Access + Refresh)</p>
+                            <p>&#128273; Two-Factor Authentication (2FA)</p>
+                            <p>&#128737;&#65039; API Key Management</p>
+                            <p>&#128203; Session Tracking (IP/Agent)</p>
+                        </div>
+                        <div>
+                            <p>&#9201;&#65039; Endpoint Rate Limiting</p>
+                            <p>&#127760; Strict CORS Configuration</p>
+                            <p>&#128274; PBKDF2 Password Hashing</p>
+                            <p>&#128100; Role-Based Access Control</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 23: AUTHENTICATION FLOW                -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Authentication Flow</h2>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 40px;" class="fragment fade-up">
+                    <div class="flow-step" style="border-color: var(--electric-blue);">User Login<br><span class="code-text" style="font-size: 11px;">email + password</span></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-step" style="border-color: var(--sev-medium);">Django Auth<br><span class="code-text" style="font-size: 11px;">validate credentials</span></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-step" style="border-color: var(--neon-green);">2FA Check<br><span class="code-text" style="font-size: 11px;">TOTP verify</span></div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-step" style="border-color: var(--neon-green);">JWT Issued<br><span class="code-text" style="font-size: 11px;">access + refresh</span></div>
+                </div>
+                <div class="grid-2 text-left mt-4">
+                    <div class="glass-card fragment fade-up">
+                        <h3 style="color: var(--neon-green); margin-bottom: 10px;">Access Token</h3>
+                        <pre><code class="code-text" style="font-size: 13px;">{
+  "token_type": "access",
+  "exp": 1800,  // 30 min
+  "user_id": 42,
+  "role": "pro_user"
+}</code></pre>
+                    </div>
+                    <div class="glass-card fragment fade-up">
+                        <h3 style="color: var(--electric-blue); margin-bottom: 10px;">Refresh Token</h3>
+                        <pre><code class="code-text" style="font-size: 13px;">{
+  "token_type": "refresh",
+  "exp": 604800,  // 7 days
+  "user_id": 42,
+  "jti": "unique-token-id"
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 24: API DESIGN                         -->
+            <!-- ============================================ -->
+            <section>
+                <h2>API Design &mdash; RESTful Endpoints</h2>
+                <div class="glass-card fragment fade-up text-left" style="background: rgba(0,0,0,0.8); overflow-x: auto;">
+                    <table style="width: 100%; font-size: 14px; border-collapse: collapse; font-family: 'JetBrains Mono', monospace;">
+                        <tr style="border-bottom: 2px solid #333;">
+                            <th style="padding: 10px; color: var(--text-primary); text-align: left;">Method</th>
+                            <th style="padding: 10px; color: var(--text-primary); text-align: left;">Endpoint</th>
+                            <th style="padding: 10px; color: var(--text-primary); text-align: left;">Description</th>
+                            <th style="padding: 10px; color: var(--text-primary); text-align: left;">Auth</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--neon-green);">POST</td><td style="padding: 8px; color: var(--electric-blue);">/api/auth/login/</td><td style="padding: 8px; color: var(--text-body);">User login, returns JWT</td><td style="padding: 8px; color: var(--text-muted);">&#128275;</td></tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--neon-green);">POST</td><td style="padding: 8px; color: var(--electric-blue);">/api/auth/register/</td><td style="padding: 8px; color: var(--text-body);">User registration</td><td style="padding: 8px; color: var(--text-muted);">&#128275;</td></tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--sev-medium);">POST</td><td style="padding: 8px; color: var(--electric-blue);">/api/scanning/scan/</td><td style="padding: 8px; color: var(--text-body);">Initiate new scan</td><td style="padding: 8px; color: var(--neon-green);">&#128274;</td></tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--electric-blue);">GET</td><td style="padding: 8px; color: var(--electric-blue);">/api/scanning/results/{id}/</td><td style="padding: 8px; color: var(--text-body);">Get scan result</td><td style="padding: 8px; color: var(--neon-green);">&#128274;</td></tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--electric-blue);">GET</td><td style="padding: 8px; color: var(--electric-blue);">/api/scanning/export/{id}/</td><td style="padding: 8px; color: var(--text-body);">Export report (PDF/CSV/JSON)</td><td style="padding: 8px; color: var(--neon-green);">&#128274;</td></tr>
+                        <tr style="border-bottom: 1px solid #222;"><td style="padding: 8px; color: var(--sev-medium);">POST</td><td style="padding: 8px; color: var(--electric-blue);">/api/chatbot/message/</td><td style="padding: 8px; color: var(--text-body);">Send chat message</td><td style="padding: 8px; color: var(--neon-green);">&#128274;</td></tr>
+                        <tr><td style="padding: 8px; color: var(--electric-blue);">GET</td><td style="padding: 8px; color: var(--electric-blue);">/api/admin/dashboard/</td><td style="padding: 8px; color: var(--text-body);">Admin analytics data</td><td style="padding: 8px; color: var(--sev-critical);">&#128737;&#65039;</td></tr>
+                    </table>
+                </div>
+                <p class="fragment fade-in text-muted" style="margin-top: 20px;">25+ endpoints &middot; Django REST Framework &middot; JWT Authentication &middot; Rate Limiting</p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 25: SERVICE TIERS                      -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Service Tiers</h2>
+                <div class="grid-3 mt-4">
+                    <div class="glass-card fragment fade-up" style="opacity: 0.8;">
+                        <h3 style="color:#FFF;">Free</h3>
+                        <p style="font-size:14px; margin-bottom:20px;">5 scans/month</p>
+                        <hr style="border-color: #333;">
+                        <p style="font-size:14px; color:var(--text-body);">Basic detection<br>Email support<br>PDF Export</p>
+                    </div>
+                    <div class="glass-card fragment fade-up" style="border-color: var(--neon-green); transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,136,0.2); z-index: 2;">
+                        <div style="background:var(--neon-green); color:#000; font-size:10px; font-weight:bold; padding:2px 10px; border-radius:10px; display:inline-block; margin-bottom:10px;">RECOMMENDED</div>
+                        <h3 class="glow-green">Pro &#11088;</h3>
+                        <p style="font-size:14px; margin-bottom:20px;">$49 / mo</p>
+                        <hr style="border-color: #333;">
+                        <p style="font-size:14px; color:var(--text-primary);">Unlimited scans<br>Advanced AI detection<br>Scheduled Scans<br>Full API Access</p>
+                    </div>
+                    <div class="glass-card fragment fade-up" style="opacity: 0.8;">
+                        <h3 style="color:#FFF;">Enterprise</h3>
+                        <p style="font-size:14px; margin-bottom:20px;">Custom</p>
+                        <hr style="border-color: #333;">
+                        <p style="font-size:14px; color:var(--text-body);">Custom ML models<br>On-premise deployment<br>SSO / SAML<br>SLA Guarantee</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 26: LIVE DEMO                          -->
+            <!-- ============================================ -->
+            <section class="flex-center">
+                <h1 class="glow-green" style="font-size: 72px;">Live Demo</h1>
+                <div class="glass-card fragment fade-up text-left" style="background: #000; margin-top: 40px; min-width: 600px;">
+                    <pre><code class="code-text" style="font-size: 18px; line-height: 1.5;">$ safeweb-ai --demo --live
+
+&gt; Launching SafeWeb AI...
+&gt; Target: testphp.vulnweb.com
+&gt; Scanning...<span style="animation: blink-caret 1s infinite;">&#9608;</span></code></pre>
+                </div>
+                <p class="text-muted fragment fade-in mt-4">[Switch to browser for live demonstration]</p>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 27: TESTING & VALIDATION RESULTS       -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Testing &amp; Validation Results</h2>
+                <table class="fragment fade-up" style="width: 100%; font-size: 16px; text-align: left; border-collapse: collapse;">
+                    <tr style="border-bottom: 2px solid #333;">
+                        <th style="padding: 10px; color: var(--text-primary);">Target Application</th>
+                        <th style="padding: 10px; color: var(--text-primary);">Total Found</th>
+                        <th style="padding: 10px; color:var(--sev-critical);">Critical</th>
+                        <th style="padding: 10px; color:var(--sev-high);">High</th>
+                        <th style="padding: 10px; color:var(--sev-medium);">Medium</th>
+                        <th style="padding: 10px; color:var(--sev-low);">Low</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #222;"><td style="padding:10px; color: var(--text-primary);">testphp.vulnweb.com</td><td style="color: var(--text-body);">115</td><td style="color:var(--sev-critical);">11</td><td style="color:var(--sev-high);">39</td><td style="color:var(--sev-medium);">33</td><td style="color:var(--sev-low);">32</td></tr>
+                    <tr style="border-bottom: 1px solid #222;"><td style="padding:10px; color: var(--text-primary);">OWASP Juice Shop</td><td style="color: var(--text-body);">89</td><td style="color:var(--sev-critical);">8</td><td style="color:var(--sev-high);">31</td><td style="color:var(--sev-medium);">28</td><td style="color:var(--sev-low);">22</td></tr>
+                    <tr style="border-bottom: 1px solid #222;"><td style="padding:10px; color: var(--text-primary);">DVWA</td><td style="color: var(--text-body);">67</td><td style="color:var(--sev-critical);">14</td><td style="color:var(--sev-high);">22</td><td style="color:var(--sev-medium);">18</td><td style="color:var(--sev-low);">13</td></tr>
+                </table>
+                
+                <div class="fragment fade-up text-left" style="margin-top: 40px; width: 60%; margin-left: auto; margin-right: auto;">
+                    <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono'; font-size:14px;"><span style="color:#FFF;">SQL Injection</span><span style="color:var(--neon-green);">98% Acc</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 98%;"></div></div>
+                    <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono'; font-size:14px; margin-top:10px;"><span style="color:#FFF;">XSS</span><span style="color:var(--neon-green);">97% Acc</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 97%;"></div></div>
+                    <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono'; font-size:14px; margin-top:10px;"><span style="color:#FFF;">Auth Bypass</span><span style="color:var(--neon-green);">99% Acc</span></div>
+                    <div class="progress-track"><div class="progress-fill" style="width: 99%;"></div></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 28: DETECTION STATISTICS               -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Detection Statistics</h2>
+                <div class="grid-2 flex-center fragment fade-up" style="align-items: center;">
+                    <div class="donut-chart"><div class="donut-inner"></div></div>
+                    <div class="grid-2 text-left" style="gap: 15px;">
+                        <div class="glass-card" style="padding:15px;"><h3 class="code-text glow-red">11%</h3><p style="font-size:12px; margin:0;">Critical (11)</p></div>
+                        <div class="glass-card" style="padding:15px;"><h3 class="code-text" style="color:var(--sev-high);">34%</h3><p style="font-size:12px; margin:0;">High (39)</p></div>
+                        <div class="glass-card" style="padding:15px;"><h3 class="code-text" style="color:var(--sev-medium);">28%</h3><p style="font-size:12px; margin:0;">Medium (33)</p></div>
+                        <div class="glass-card" style="padding:15px;"><h3 class="code-text" style="color:var(--sev-low);">27%</h3><p style="font-size:12px; margin:0;">Low (32)</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 29: COMPARISON WITH COMPETITORS        -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Competitive Comparison</h2>
+                <table class="comparison-table fragment fade-up" style="margin-top: 30px;">
+                    <tr>
+                        <th style="text-align: left;">Feature</th>
+                        <th class="highlight-col-header">SafeWeb AI</th>
+                        <th>OWASP ZAP</th>
+                        <th>Burp Suite</th>
+                        <th>Acunetix</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">AI/ML Detection</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003; Built-in</td>
+                        <td>&#10007;</td>
+                        <td>Limited</td>
+                        <td>&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">AI Chatbot</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003; Integrated</td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">CVSS 3.1 Scoring</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003; Auto</td>
+                        <td>Manual</td>
+                        <td>&#10003;</td>
+                        <td>&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">Open Source</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003;</td>
+                        <td>&#10003;</td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">Modern Web UI</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003; React</td>
+                        <td>Desktop Java</td>
+                        <td>Desktop Java</td>
+                        <td>&#10003; Web</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">File Malware Scan</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">&#10003; ML-based</td>
+                        <td>&#10007;</td>
+                        <td>&#10007;</td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; color: var(--text-primary);">Price</td>
+                        <td class="highlight-col" style="color: var(--neon-green);">Free / $49</td>
+                        <td>Free</td>
+                        <td>$449+/yr</td>
+                        <td>$4,500+/yr</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 30: CHALLENGES & SOLUTIONS             -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Challenges &amp; Solutions</h2>
+                <div class="glass-card fragment fade-up">
+                    <table style="width: 100%; font-size: 16px; text-align: left; border-collapse: collapse;">
+                        <tr>
+                            <th style="padding:15px; color:var(--sev-critical); width:45%;">Challenge &#10007;</th>
+                            <th style="width:10%;"></th>
+                            <th style="padding:15px; color:var(--neon-green); width:45%;">Solution &#10003;</th>
+                        </tr>
+                        <tr style="border-top: 1px solid #333;">
+                            <td style="padding:15px; color: var(--text-body);">Async scan execution blocking the server</td>
+                            <td style="color:#333; text-align:center;">&rarr;</td>
+                            <td style="padding:15px; color: var(--text-body);">Celery task queue with 3 retries + 60s delay</td>
+                        </tr>
+                        <tr style="border-top: 1px solid #333;">
+                            <td style="padding:15px; color: var(--text-body);">High false positive rates in testing</td>
+                            <td style="color:#333; text-align:center;">&rarr;</td>
+                            <td style="padding:15px; color: var(--text-body);">ML-enhanced detection + confidence scoring</td>
+                        </tr>
+                        <tr style="border-top: 1px solid #333;">
+                            <td style="padding:15px; color: var(--text-body);">ML model training data scarcity</td>
+                            <td style="color:#333; text-align:center;">&rarr;</td>
+                            <td style="padding:15px; color: var(--text-body);">Synthetic data generation + rule fallback</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 31: FUTURE WORK & ROADMAP              -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Future Work &amp; Roadmap</h2>
+                <div class="timeline-container fragment fade-up">
+                    <div class="timeline-line"></div>
+                    <div style="text-align:center;"><div class="timeline-dot"></div><h4 style="color:#FFF;">Q2 2026</h4><p style="font-size:12px; color:var(--text-body);">Deep Learning Models<br>Scheduled Scans</p></div>
+                    <div style="text-align:center;"><div class="timeline-dot"></div><h4 style="color:#FFF;">Q3 2026</h4><p style="font-size:12px; color:var(--text-body);">Browser Extension<br>Mobile App (React Native)</p></div>
+                    <div style="text-align:center;"><div class="timeline-dot"></div><h4 style="color:#FFF;">Q4 2026</h4><p style="font-size:12px; color:var(--text-body);">CI/CD Integration<br>Threat Intel Feeds</p></div>
+                    <div style="text-align:center;"><div class="timeline-dot"></div><h4 style="color:#FFF;">2027+</h4><p style="font-size:12px; color:var(--text-body);">Enterprise On-Prem<br>Compliance Automation</p></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 32: PROJECT BY THE NUMBERS             -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Project By The Numbers</h2>
+                <div class="grid-4 fragment fade-up">
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">29</h2><p style="font-size:12px; margin:0;">Frontend Pages</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">25+</h2><p style="font-size:12px; margin:0;">API Endpoints</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">10</h2><p style="font-size:12px; margin:0;">Vuln Testers</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">40</h2><p style="font-size:12px; margin:0;">ML Features</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">25+</h2><p style="font-size:12px; margin:0;">KB Topics</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">5</h2><p style="font-size:12px; margin:0;">Export Formats</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:36px; padding-top:10px;">15K+</h2><p style="font-size:12px; margin:0;">Lines of Code</p></div>
+                    <div class="glass-card"><h2 class="code-text glow-green" style="margin:0; font-size:48px;">3</h2><p style="font-size:12px; margin:0;">Scan Types</p></div>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 33: CONCLUSION                         -->
+            <!-- ============================================ -->
+            <section>
+                <h2>Conclusion</h2>
+                <div class="text-left" style="max-width: 800px; margin: 0 auto;">
+                    <ul class="list-unstyled" style="font-size: 20px; line-height: 2;">
+                        <li class="fragment fade-up"><span style="color:var(--neon-green);">&#10003;</span> Built comprehensive AI-powered vulnerability scanner</li>
+                        <li class="fragment fade-up"><span style="color:var(--neon-green);">&#10003;</span> Implemented ML models with 96%+ accuracy</li>
+                        <li class="fragment fade-up"><span style="color:var(--neon-green);">&#10003;</span> Covered all OWASP Top 10 categories</li>
+                        <li class="fragment fade-up"><span style="color:var(--neon-green);">&#10003;</span> Developed intelligent chatbot for education</li>
+                        <li class="fragment fade-up"><span style="color:var(--neon-green);">&#10003;</span> Full-stack: React + Django + Celery + scikit-learn</li>
+                    </ul>
+                    <p class="fragment fade-in text-muted" style="font-style: italic; text-align: center; margin-top: 40px;">
+                        "Making web security accessible, intelligent, and actionable for everyone."
+                    </p>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 34: REFERENCES                         -->
+            <!-- ============================================ -->
+            <section>
+                <h2>References</h2>
+                <div class="text-left" style="max-width: 850px; margin: 0 auto;">
+                    <ul class="list-unstyled" style="font-size: 15px; line-height: 2.2;">
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[1]</span> OWASP Foundation. "OWASP Top 10 — 2021." <span style="color: var(--electric-blue);">owasp.org/Top10</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[2]</span> FIRST.org. "Common Vulnerability Scoring System v3.1." <span style="color: var(--electric-blue);">first.org/cvss</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[3]</span> IBM Security. "Cost of a Data Breach Report 2024." <span style="color: var(--electric-blue);">ibm.com/reports/data-breach</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[4]</span> Pedregosa et al. "Scikit-learn: ML in Python." <span style="color: var(--electric-blue);">JMLR 12 (2011)</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[5]</span> Django Software Foundation. "Django Documentation v5.2." <span style="color: var(--electric-blue);">docs.djangoproject.com</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[6]</span> Meta Platforms. "React Documentation v18." <span style="color: var(--electric-blue);">react.dev</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[7]</span> OpenAI. "GPT-4o-mini API Documentation." <span style="color: var(--electric-blue);">platform.openai.com/docs</span></li>
+                        <li class="fragment fade-up"><span class="code-text" style="font-size: 13px;">[8]</span> Celery Project. "Celery: Distributed Task Queue." <span style="color: var(--electric-blue);">docs.celeryq.dev</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================ -->
+            <!-- SLIDE 35: THANK YOU                          -->
+            <!-- ============================================ -->
+            <section class="flex-center">
+                <h1 class="glow-green" style="font-size: 72px;">Thank You</h1>
+                <p style="font-size: 28px; color: var(--text-body);">Questions &amp; Discussion</p>
+                <div class="code-text terminal-line mt-4">
+                    $ safeweb-ai --status ready-for-questions <span style="animation: blink-caret 1s infinite;">&#9608;</span>
+                </div>
+                <div style="text-align: center; width: 100%;"><div class="gradient-divider"></div></div>
+                <p class="text-muted">[Your Name] &middot; [Email] &middot; [University]</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        // Initialize Reveal.js
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+        });
+
+        // Matrix Rain Background Animation
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%"\'#&_(),.;:?!\\|{}<>[]^~';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for (let x = 0; x < columns; x++) { drops[x] = 1; }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 6, 7, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00FF88';
+            ctx.font = fontSize + 'px "JetBrains Mono"';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 50);
+
+        // Handle window resize for Matrix canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

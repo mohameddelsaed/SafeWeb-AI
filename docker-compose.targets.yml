@@ -1,0 +1,37 @@
+# Isolated Docker Compose topology for Phase B penetration testing targets.
+# Complies with QA Plan Phase B1: Unreachable from the internet.
+
+networks:
+  isolated-targets:
+    driver: bridge
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: target-dvwa
+    environment:
+      - MYSQL_PASS=password
+    networks:
+      - isolated-targets
+    ports:
+      - "8081:80"
+
+  juiceshop:
+    image: bkimminich/juice-shop
+    container_name: target-juiceshop
+    networks:
+      - isolated-targets
+    ports:
+      - "3000:3000"
+
+  webgoat:
+    image: webgoat/webgoat
+    container_name: target-webgoat
+    environment:
+      - WEBGOAT_PORT=8080
+      - WEBWOLF_PORT=9090
+    networks:
+      - isolated-targets
+    ports:
+      - "8080:8080"
+      - "9090:9090"

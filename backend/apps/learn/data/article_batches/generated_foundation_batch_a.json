@@ -1,0 +1,137 @@
+[
+  {
+    "title": "SQL Injection for Modern Web Stacks",
+    "slug": "sql-injection-modern-web-stacks",
+    "canonical_slug": "sql-injection-modern-web-stacks",
+    "excerpt": "SQL Injection for Modern Web Stacks - practical guidance, exploit understanding, and secure remediation patterns.",
+    "content": "# SQL Injection for Modern Web Stacks\n\n## Audience and Level\n- Target audience: Security specialists and developers\n- Difficulty: foundation\n- Estimated read time: 12 minutes\n\n## Why This Matters\nWrite a concise business and engineering impact statement.\n\n## Threat Model Snapshot\n- Assets at risk\n- Entry points\n- Trust boundaries\n- Typical attacker goals\n\n## Attack Mechanics\nExplain the attack chain step by step with realistic examples.\n\n## Vulnerable Patterns\n```text\nInclude vulnerable patterns in pseudocode or framework-specific snippets.\n```\n\n## Detection and Verification\n- Manual testing checklist\n- Automated testing ideas\n- Logging indicators\n- False-positive pitfalls\n\n## Secure Implementation\n```text\nInclude secure coding examples and explicit rationale.\n```\n\n## Hardening Checklist\n- [ ] Input validation\n- [ ] Output encoding and context awareness\n- [ ] Authentication and authorization checks\n- [ ] Rate limiting and abuse protections\n- [ ] Security headers and transport controls\n- [ ] Monitoring and alerting\n\n## Mapping and References\n- OWASP: OWASP Top 10\n- CWE: CWE mappings required\n- WSTG: WSTG references required\n- ASVS: ASVS references required\n\n## Source Notes\nUse rewritten synthesis only. Do not copy source text verbatim.\n\n## References\n1. Primary standard reference URL\n2. Secondary testing/research URL\n3. Implementation guidance URL\n",
+    "category": "injection",
+    "categories": [
+      "injection"
+    ],
+    "tags": [
+      "sql-injection",
+      "owasp-top-10",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 12,
+    "difficulty_level": "foundation",
+    "status": "draft",
+    "is_published": false,
+    "source_count": 0,
+    "references": [],
+    "cwe_ids": [],
+    "owasp_refs": [],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "DOM XSS Defense Patterns in React Applications",
+    "slug": "dom-xss-defense-patterns-react",
+    "canonical_slug": "dom-xss-defense-patterns-react",
+    "excerpt": "DOM XSS Defense Patterns in React Applications - practical guidance, exploit understanding, and secure remediation patterns.",
+    "content": "# DOM XSS Defense Patterns in React Applications\n\n## Audience and Level\n- Target audience: Security specialists and developers\n- Difficulty: foundation\n- Estimated read time: 10 minutes\n\n## Why This Matters\nWrite a concise business and engineering impact statement.\n\n## Threat Model Snapshot\n- Assets at risk\n- Entry points\n- Trust boundaries\n- Typical attacker goals\n\n## Attack Mechanics\nExplain the attack chain step by step with realistic examples.\n\n## Vulnerable Patterns\n```text\nInclude vulnerable patterns in pseudocode or framework-specific snippets.\n```\n\n## Detection and Verification\n- Manual testing checklist\n- Automated testing ideas\n- Logging indicators\n- False-positive pitfalls\n\n## Secure Implementation\n```text\nInclude secure coding examples and explicit rationale.\n```\n\n## Hardening Checklist\n- [ ] Input validation\n- [ ] Output encoding and context awareness\n- [ ] Authentication and authorization checks\n- [ ] Rate limiting and abuse protections\n- [ ] Security headers and transport controls\n- [ ] Monitoring and alerting\n\n## Mapping and References\n- OWASP: OWASP Top 10\n- CWE: CWE mappings required\n- WSTG: WSTG references required\n- ASVS: ASVS references required\n\n## Source Notes\nUse rewritten synthesis only. Do not copy source text verbatim.\n\n## References\n1. Primary standard reference URL\n2. Secondary testing/research URL\n3. Implementation guidance URL\n",
+    "category": "xss",
+    "categories": [
+      "xss"
+    ],
+    "tags": [
+      "xss",
+      "react",
+      "csp"
+    ],
+    "author": "Security Team",
+    "read_time": 10,
+    "difficulty_level": "foundation",
+    "status": "draft",
+    "is_published": false,
+    "source_count": 0,
+    "references": [],
+    "cwe_ids": [],
+    "owasp_refs": [],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Practical API Authorization Testing",
+    "slug": "practical-api-authorization-testing",
+    "canonical_slug": "practical-api-authorization-testing",
+    "excerpt": "Practical API Authorization Testing - practical guidance, exploit understanding, and secure remediation patterns.",
+    "content": "# Practical API Authorization Testing\n\n## Audience and Level\n- Target audience: Security specialists and developers\n- Difficulty: foundation\n- Estimated read time: 11 minutes\n\n## Why This Matters\nWrite a concise business and engineering impact statement.\n\n## Threat Model Snapshot\n- Assets at risk\n- Entry points\n- Trust boundaries\n- Typical attacker goals\n\n## Attack Mechanics\nExplain the attack chain step by step with realistic examples.\n\n## Vulnerable Patterns\n```text\nInclude vulnerable patterns in pseudocode or framework-specific snippets.\n```\n\n## Detection and Verification\n- Manual testing checklist\n- Automated testing ideas\n- Logging indicators\n- False-positive pitfalls\n\n## Secure Implementation\n```text\nInclude secure coding examples and explicit rationale.\n```\n\n## Hardening Checklist\n- [ ] Input validation\n- [ ] Output encoding and context awareness\n- [ ] Authentication and authorization checks\n- [ ] Rate limiting and abuse protections\n- [ ] Security headers and transport controls\n- [ ] Monitoring and alerting\n\n## Mapping and References\n- OWASP: OWASP Top 10\n- CWE: CWE mappings required\n- WSTG: WSTG references required\n- ASVS: ASVS references required\n\n## Source Notes\nUse rewritten synthesis only. Do not copy source text verbatim.\n\n## References\n1. Primary standard reference URL\n2. Secondary testing/research URL\n3. Implementation guidance URL\n",
+    "category": "api_security",
+    "categories": [
+      "api_security"
+    ],
+    "tags": [
+      "api-abuse",
+      "idor",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 11,
+    "difficulty_level": "foundation",
+    "status": "draft",
+    "is_published": false,
+    "source_count": 0,
+    "references": [],
+    "cwe_ids": [],
+    "owasp_refs": [],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Security Headers: Deployment Playbook",
+    "slug": "security-headers-deployment-playbook",
+    "canonical_slug": "security-headers-deployment-playbook",
+    "excerpt": "Security Headers: Deployment Playbook - practical guidance, exploit understanding, and secure remediation patterns.",
+    "content": "# Security Headers: Deployment Playbook\n\n## Audience and Level\n- Target audience: Security specialists and developers\n- Difficulty: foundation\n- Estimated read time: 9 minutes\n\n## Why This Matters\nWrite a concise business and engineering impact statement.\n\n## Threat Model Snapshot\n- Assets at risk\n- Entry points\n- Trust boundaries\n- Typical attacker goals\n\n## Attack Mechanics\nExplain the attack chain step by step with realistic examples.\n\n## Vulnerable Patterns\n```text\nInclude vulnerable patterns in pseudocode or framework-specific snippets.\n```\n\n## Detection and Verification\n- Manual testing checklist\n- Automated testing ideas\n- Logging indicators\n- False-positive pitfalls\n\n## Secure Implementation\n```text\nInclude secure coding examples and explicit rationale.\n```\n\n## Hardening Checklist\n- [ ] Input validation\n- [ ] Output encoding and context awareness\n- [ ] Authentication and authorization checks\n- [ ] Rate limiting and abuse protections\n- [ ] Security headers and transport controls\n- [ ] Monitoring and alerting\n\n## Mapping and References\n- OWASP: OWASP Top 10\n- CWE: CWE mappings required\n- WSTG: WSTG references required\n- ASVS: ASVS references required\n\n## Source Notes\nUse rewritten synthesis only. Do not copy source text verbatim.\n\n## References\n1. Primary standard reference URL\n2. Secondary testing/research URL\n3. Implementation guidance URL\n",
+    "category": "security_headers",
+    "categories": [
+      "security_headers"
+    ],
+    "tags": [
+      "security-headers",
+      "csp",
+      "owasp-top-10"
+    ],
+    "author": "Security Team",
+    "read_time": 9,
+    "difficulty_level": "foundation",
+    "status": "draft",
+    "is_published": false,
+    "source_count": 0,
+    "references": [],
+    "cwe_ids": [],
+    "owasp_refs": [],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Authentication Hardening for SaaS Platforms",
+    "slug": "authentication-hardening-saas-platforms",
+    "canonical_slug": "authentication-hardening-saas-platforms",
+    "excerpt": "Authentication Hardening for SaaS Platforms - practical guidance, exploit understanding, and secure remediation patterns.",
+    "content": "# Authentication Hardening for SaaS Platforms\n\n## Audience and Level\n- Target audience: Security specialists and developers\n- Difficulty: foundation\n- Estimated read time: 13 minutes\n\n## Why This Matters\nWrite a concise business and engineering impact statement.\n\n## Threat Model Snapshot\n- Assets at risk\n- Entry points\n- Trust boundaries\n- Typical attacker goals\n\n## Attack Mechanics\nExplain the attack chain step by step with realistic examples.\n\n## Vulnerable Patterns\n```text\nInclude vulnerable patterns in pseudocode or framework-specific snippets.\n```\n\n## Detection and Verification\n- Manual testing checklist\n- Automated testing ideas\n- Logging indicators\n- False-positive pitfalls\n\n## Secure Implementation\n```text\nInclude secure coding examples and explicit rationale.\n```\n\n## Hardening Checklist\n- [ ] Input validation\n- [ ] Output encoding and context awareness\n- [ ] Authentication and authorization checks\n- [ ] Rate limiting and abuse protections\n- [ ] Security headers and transport controls\n- [ ] Monitoring and alerting\n\n## Mapping and References\n- OWASP: OWASP Top 10\n- CWE: CWE mappings required\n- WSTG: WSTG references required\n- ASVS: ASVS references required\n\n## Source Notes\nUse rewritten synthesis only. Do not copy source text verbatim.\n\n## References\n1. Primary standard reference URL\n2. Secondary testing/research URL\n3. Implementation guidance URL\n",
+    "category": "authentication",
+    "categories": [
+      "authentication"
+    ],
+    "tags": [
+      "jwt-security",
+      "session-management",
+      "oauth2"
+    ],
+    "author": "Security Team",
+    "read_time": 13,
+    "difficulty_level": "foundation",
+    "status": "draft",
+    "is_published": false,
+    "source_count": 0,
+    "references": [],
+    "cwe_ids": [],
+    "owasp_refs": [],
+    "related_article_ids": [],
+    "version": "1.0"
+  }
+]

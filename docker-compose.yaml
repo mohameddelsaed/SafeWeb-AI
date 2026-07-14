@@ -1,0 +1,178 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg15
+    container_name: safeweb-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: safeweb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d safeweb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: safeweb-redis
+    restart: unless-stopped
+
+    ports:
+      - "6379:6379"
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: safeweb-backend
+    restart: unless-stopped
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - ./backend/.env
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+    entrypoint: ["/entrypoint.backend.sh"]
+
+    command:
+      - gunicorn
+      - config.wsgi:application
+      - --bind
+      - 0.0.0.0:8000
+      - --workers
+      - "2"
+
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  celery-worker:
+    image: safeweb-ai-main-backend
+
+    restart: unless-stopped
+
+    entrypoint: ["/entrypoint.worker.sh"]
+
+    env_file:
+      - ./backend/.env
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+    command:
+      - celery
+      - -A
+      - celery_app
+      - worker
+      - --loglevel=info
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+
+    container_name: safeweb-frontend
+    restart: unless-stopped
+
+    ports:
+      - "3000:80"
+
+    depends_on:
+      backend:
+        condition: service_healthy
+  
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: safeweb-prometheus
+    restart: unless-stopped
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: safeweb-cadvisor
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+
+    privileged: true
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: safeweb-node-exporter
+    restart: unless-stopped
+
+    ports:
+      - "9100:9100"
+
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--path.rootfs=/rootfs'
+
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: safeweb-grafana
+    restart: unless-stopped
+
+    ports:
+      - "3001:3000"
+
+    depends_on:
+      - prometheus
+
+    volumes:
+      - grafana_data:/var/lib/grafana
+volumes:
+  postgres_data:
+  grafana_data:

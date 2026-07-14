@@ -1,0 +1,1252 @@
+[
+    {
+        "title":  "Specialist: Script Gadget Abuse Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-script-gadget-abuse-attack-chains-and-defense-at-scale-for-saas-platforms-451",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: API Versioning Security Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-api-versioning-security-attack-chains-and-defense-at-scale-for-api-first-products-452",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Session Management Attack Chains and Defense at Scale in Cloud-Native Deployments",
+        "slug":  "specialist-session-management-attack-chains-and-defense-at-scale-in-cloud-native-deployments-453",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Tenant Isolation Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-tenant-isolation-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-454",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Clickjacking Defense Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-clickjacking-defense-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-455",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Secret Rotation Attack Chains and Defense at Scale for Regulated Environments",
+        "slug":  "specialist-secret-rotation-attack-chains-and-defense-at-scale-for-regulated-environments-456",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Abuse-Driven Incident Triage Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-abuse-driven-incident-triage-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-457",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Evidence-Based Remediation Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-evidence-based-remediation-attack-chains-and-defense-at-scale-for-saas-platforms-458",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Command Injection Attack Chains and Defense at Scale in Multi-Tenant Architectures",
+        "slug":  "specialist-command-injection-attack-chains-and-defense-at-scale-in-multi-tenant-architectures",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Reflected XSS Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-reflected-xss-attack-chains-and-defense-at-scale-for-api-first-products-460",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: WebSocket Auth Abuse Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-websocket-auth-abuse-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-461",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Passwordless Security Attack Chains and Defense at Scale for High-Risk Business Workflows",
+        "slug":  "specialist-passwordless-security-attack-chains-and-defense-at-scale-for-high-risk-business-workflows-462",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Resource Ownership Checks Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-resource-ownership-checks-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-463",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Header Governance at Scale Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-header-governance-at-scale-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-464",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Key Management Attack Chains and Defense at Scale in Incident-Prone Production Systems",
+        "slug":  "specialist-key-management-attack-chains-and-defense-at-scale-in-incident-prone-production-systems-465",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Layer-7 Resilience Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-layer-7-resilience-attack-chains-and-defense-at-scale-for-saas-platforms-466",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Threat Modeling Workflows Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-threat-modeling-workflows-attack-chains-and-defense-at-scale-for-api-first-products-467",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: XPath Injection Attack Chains and Defense at Scale in Cloud-Native Deployments",
+        "slug":  "specialist-xpath-injection-attack-chains-and-defense-at-scale-in-cloud-native-deployments",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Script Gadget Abuse Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-script-gadget-abuse-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-469",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: API Versioning Security Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-api-versioning-security-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-470",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Session Management Attack Chains and Defense at Scale for Regulated Environments",
+        "slug":  "specialist-session-management-attack-chains-and-defense-at-scale-for-regulated-environments-471",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Tenant Isolation Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-tenant-isolation-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-472",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Clickjacking Defense Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-clickjacking-defense-attack-chains-and-defense-at-scale-for-saas-platforms-473",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Secret Rotation Attack Chains and Defense at Scale in Multi-Tenant Architectures",
+        "slug":  "specialist-secret-rotation-attack-chains-and-defense-at-scale-in-multi-tenant-architectures-474",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Abuse-Driven Incident Triage Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-abuse-driven-incident-triage-attack-chains-and-defense-at-scale-for-api-first-products-475",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Evidence-Based Remediation Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-evidence-based-remediation-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-476",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: SQL Injection Attack Chains and Defense at Scale for High-Risk Business Workflows",
+        "slug":  "specialist-sql-injection-attack-chains-and-defense-at-scale-for-high-risk-business-workflows",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Reflected XSS Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-reflected-xss-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-478",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: WebSocket Auth Abuse Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-websocket-auth-abuse-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-479",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Passwordless Security Attack Chains and Defense at Scale in Incident-Prone Production Systems",
+        "slug":  "specialist-passwordless-security-attack-chains-and-defense-at-scale-in-incident-prone-production-systems-480",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Resource Ownership Checks Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-resource-ownership-checks-attack-chains-and-defense-at-scale-for-saas-platforms-481",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Header Governance at Scale Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-header-governance-at-scale-attack-chains-and-defense-at-scale-for-api-first-products-482",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Key Management Attack Chains and Defense at Scale in Cloud-Native Deployments",
+        "slug":  "specialist-key-management-attack-chains-and-defense-at-scale-in-cloud-native-deployments-483",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Layer-7 Resilience Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-layer-7-resilience-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-484",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Threat Modeling Workflows Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-threat-modeling-workflows-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-485",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Template Injection Attack Chains and Defense at Scale for Regulated Environments",
+        "slug":  "specialist-template-injection-attack-chains-and-defense-at-scale-for-regulated-environments",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Script Gadget Abuse Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-script-gadget-abuse-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-487",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: API Versioning Security Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-api-versioning-security-attack-chains-and-defense-at-scale-for-saas-platforms-488",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Session Management Attack Chains and Defense at Scale in Multi-Tenant Architectures",
+        "slug":  "specialist-session-management-attack-chains-and-defense-at-scale-in-multi-tenant-architectures-489",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Tenant Isolation Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-tenant-isolation-attack-chains-and-defense-at-scale-for-api-first-products-490",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  16,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Clickjacking Defense Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-clickjacking-defense-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-491",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Secret Rotation Attack Chains and Defense at Scale for High-Risk Business Workflows",
+        "slug":  "specialist-secret-rotation-attack-chains-and-defense-at-scale-for-high-risk-business-workflows-492",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Abuse-Driven Incident Triage Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-abuse-driven-incident-triage-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-493",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  14,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Evidence-Based Remediation Attack Chains and Defense at Scale for CI/CD and Release Pipelines",
+        "slug":  "specialist-evidence-based-remediation-attack-chains-and-defense-at-scale-for-ci-cd-and-release-pipelines-494",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: LDAP Injection Attack Chains and Defense at Scale in Incident-Prone Production Systems",
+        "slug":  "specialist-ldap-injection-attack-chains-and-defense-at-scale-in-incident-prone-production-systems",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Reflected XSS Attack Chains and Defense at Scale for SaaS Platforms",
+        "slug":  "specialist-reflected-xss-attack-chains-and-defense-at-scale-for-saas-platforms-496",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: WebSocket Auth Abuse Attack Chains and Defense at Scale for API-First Products",
+        "slug":  "specialist-websocket-auth-abuse-attack-chains-and-defense-at-scale-for-api-first-products-497",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Passwordless Security Attack Chains and Defense at Scale in Cloud-Native Deployments",
+        "slug":  "specialist-passwordless-security-attack-chains-and-defense-at-scale-in-cloud-native-deployments-498",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  18,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Resource Ownership Checks Attack Chains and Defense at Scale for Modern SPAs and BFFs",
+        "slug":  "specialist-resource-ownership-checks-attack-chains-and-defense-at-scale-for-modern-spas-and-bffs-499",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  17,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    },
+    {
+        "title":  "Specialist: Header Governance at Scale Attack Chains and Defense at Scale in Zero-Trust Service Meshes",
+        "slug":  "specialist-header-governance-at-scale-attack-chains-and-defense-at-scale-in-zero-trust-service-meshes-500",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "specialist",
+        "read_time":  15,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Advanced exploitation chains, architecture tradeoffs, and detection engineering"
+    }
+]

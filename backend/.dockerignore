@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Git
+.git/
+.gitignore
+
+# IDEs
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Tests & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Python cache
+.mypy_cache/
+.ruff_cache/
+
+# Local media & uploads
+media/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "SQL Injection for Modern Web Stacks",
+    "slug": "sql-injection-modern-web-stacks",
+    "category": "injection",
+    "difficulty_level": "foundation",
+    "read_time": 12,
+    "tags": ["sql-injection", "owasp-top-10", "wstg"]
+  },
+  {
+    "title": "DOM XSS Defense Patterns in React Applications",
+    "slug": "dom-xss-defense-patterns-react",
+    "category": "xss",
+    "difficulty_level": "foundation",
+    "read_time": 10,
+    "tags": ["xss", "react", "csp"]
+  },
+  {
+    "title": "Practical API Authorization Testing",
+    "slug": "practical-api-authorization-testing",
+    "category": "api_security",
+    "difficulty_level": "foundation",
+    "read_time": 11,
+    "tags": ["api-abuse", "idor", "wstg"]
+  },
+  {
+    "title": "Security Headers: Deployment Playbook",
+    "slug": "security-headers-deployment-playbook",
+    "category": "security_headers",
+    "difficulty_level": "foundation",
+    "read_time": 9,
+    "tags": ["security-headers", "csp", "owasp-top-10"]
+  },
+  {
+    "title": "Authentication Hardening for SaaS Platforms",
+    "slug": "authentication-hardening-saas-platforms",
+    "category": "authentication",
+    "difficulty_level": "foundation",
+    "read_time": 13,
+    "tags": ["jwt-security", "session-management", "oauth2"]
+  }
+]

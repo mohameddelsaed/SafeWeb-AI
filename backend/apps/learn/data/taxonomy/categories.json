@@ -1,0 +1,266 @@
+[
+  {
+    "slug": "vulnerabilities",
+    "label": "Web Vulnerabilities",
+    "description": "Core web vulnerability classes and exploitation patterns.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 10
+  },
+  {
+    "slug": "secure-coding",
+    "label": "Secure Coding",
+    "description": "Framework-focused and language-focused secure coding practices.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 20
+  },
+  {
+    "slug": "testing-methodology",
+    "label": "Testing Methodology",
+    "description": "Operational testing workflows and pentesting methodology.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 30
+  },
+  {
+    "slug": "defensive-architecture",
+    "label": "Defensive Architecture",
+    "description": "Security controls, architecture patterns, and hardening guidance.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 40
+  },
+  {
+    "slug": "api-security",
+    "label": "API Security",
+    "description": "REST, GraphQL, gRPC, and API authentication/authorization security.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 50
+  },
+  {
+    "slug": "cloud-native-security",
+    "label": "Cloud Native Security",
+    "description": "Cloud deployment hardening and platform security practices.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 60
+  },
+  {
+    "slug": "ai-llm-security",
+    "label": "AI and LLM Security",
+    "description": "Prompt injection, model abuse, and AI application security.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 70
+  },
+  {
+    "slug": "compliance-governance",
+    "label": "Compliance and Governance",
+    "description": "Control mappings, audits, evidence, and governance practices.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 80
+  },
+  {
+    "slug": "incident-response",
+    "label": "Incident Response",
+    "description": "Detection, triage, containment, and post-incident lessons.",
+    "parent": null,
+    "depth": 0,
+    "sort_order": 90
+  },
+  {
+    "slug": "injection-attacks",
+    "label": "Injection Attacks",
+    "description": "SQL, NoSQL, OS command, and interpreter injection.",
+    "parent": "vulnerabilities",
+    "depth": 1,
+    "sort_order": 101
+  },
+  {
+    "slug": "xss-and-client-side",
+    "label": "XSS and Client-Side Attacks",
+    "description": "Reflected, stored, DOM XSS, and browser-side abuse.",
+    "parent": "vulnerabilities",
+    "depth": 1,
+    "sort_order": 102
+  },
+  {
+    "slug": "authn-authz",
+    "label": "Authentication and Authorization",
+    "description": "Session management, IDOR, privilege escalation, and access control.",
+    "parent": "vulnerabilities",
+    "depth": 1,
+    "sort_order": 103
+  },
+  {
+    "slug": "ssrf-deserialization-smuggling",
+    "label": "SSRF, Deserialization, and Smuggling",
+    "description": "Server-side pivoting and parser inconsistency attacks.",
+    "parent": "vulnerabilities",
+    "depth": 1,
+    "sort_order": 104
+  },
+  {
+    "slug": "business-logic",
+    "label": "Business Logic Flaws",
+    "description": "Workflow abuse, race conditions, and authorization bypass chains.",
+    "parent": "vulnerabilities",
+    "depth": 1,
+    "sort_order": 105
+  },
+  {
+    "slug": "django-and-drf",
+    "label": "Django and DRF Secure Coding",
+    "description": "Secure patterns for Django and Django REST Framework.",
+    "parent": "secure-coding",
+    "depth": 1,
+    "sort_order": 201
+  },
+  {
+    "slug": "react-and-frontend",
+    "label": "React and Frontend Security",
+    "description": "Frontend hardening, CSP, token handling, and anti-XSS patterns.",
+    "parent": "secure-coding",
+    "depth": 1,
+    "sort_order": 202
+  },
+  {
+    "slug": "node-and-express",
+    "label": "Node and Express Security",
+    "description": "Backend JavaScript security practices and anti-abuse controls.",
+    "parent": "secure-coding",
+    "depth": 1,
+    "sort_order": 203
+  },
+  {
+    "slug": "wstg-workflows",
+    "label": "OWASP WSTG Workflows",
+    "description": "WSTG-based security testing playbooks and checklists.",
+    "parent": "testing-methodology",
+    "depth": 1,
+    "sort_order": 301
+  },
+  {
+    "slug": "recon-and-enumeration",
+    "label": "Recon and Enumeration",
+    "description": "Attack surface mapping and discovery pipelines.",
+    "parent": "testing-methodology",
+    "depth": 1,
+    "sort_order": 302
+  },
+  {
+    "slug": "verification-and-fp-reduction",
+    "label": "Verification and False Positive Reduction",
+    "description": "Evidence validation and confidence scoring.",
+    "parent": "testing-methodology",
+    "depth": 1,
+    "sort_order": 303
+  },
+  {
+    "slug": "security-headers-and-browser-controls",
+    "label": "Security Headers and Browser Controls",
+    "description": "CSP, HSTS, cookie policy, framing, and browser mitigations.",
+    "parent": "defensive-architecture",
+    "depth": 1,
+    "sort_order": 401
+  },
+  {
+    "slug": "cryptography-and-secrets",
+    "label": "Cryptography and Secrets Management",
+    "description": "Key management, transport security, storage encryption.",
+    "parent": "defensive-architecture",
+    "depth": 1,
+    "sort_order": 402
+  },
+  {
+    "slug": "logging-monitoring-detection",
+    "label": "Logging, Monitoring, and Detection",
+    "description": "Security telemetry and incident detection architecture.",
+    "parent": "defensive-architecture",
+    "depth": 1,
+    "sort_order": 403
+  },
+  {
+    "slug": "rest-graphql-websocket",
+    "label": "REST, GraphQL, and WebSocket Security",
+    "description": "Protocol-specific API attack and defense patterns.",
+    "parent": "api-security",
+    "depth": 1,
+    "sort_order": 501
+  },
+  {
+    "slug": "api-auth-and-rate-limits",
+    "label": "API Auth, Abuse Prevention, and Rate Limits",
+    "description": "Token strategy, authorization checks, and abuse controls.",
+    "parent": "api-security",
+    "depth": 1,
+    "sort_order": 502
+  },
+  {
+    "slug": "kubernetes-and-container-hardening",
+    "label": "Kubernetes and Container Hardening",
+    "description": "Container attack surface and cluster defenses.",
+    "parent": "cloud-native-security",
+    "depth": 1,
+    "sort_order": 601
+  },
+  {
+    "slug": "iac-and-supply-chain",
+    "label": "IaC and Supply Chain Security",
+    "description": "Dependency integrity and secure infrastructure-as-code.",
+    "parent": "cloud-native-security",
+    "depth": 1,
+    "sort_order": 602
+  },
+  {
+    "slug": "prompt-injection-and-agent-abuse",
+    "label": "Prompt Injection and Agent Abuse",
+    "description": "Prompt-level, tool-level, and retrieval-chain attacks.",
+    "parent": "ai-llm-security",
+    "depth": 1,
+    "sort_order": 701
+  },
+  {
+    "slug": "model-data-and-output-security",
+    "label": "Model, Data, and Output Security",
+    "description": "Model poisoning, output controls, and policy enforcement.",
+    "parent": "ai-llm-security",
+    "depth": 1,
+    "sort_order": 702
+  },
+  {
+    "slug": "owasp-asvs-mappings",
+    "label": "OWASP ASVS Mappings",
+    "description": "Control-oriented secure engineering guidance.",
+    "parent": "compliance-governance",
+    "depth": 1,
+    "sort_order": 801
+  },
+  {
+    "slug": "pci-soc2-iso",
+    "label": "PCI DSS, SOC 2, and ISO 27001",
+    "description": "Control mappings and evidence-driven compliance workflows.",
+    "parent": "compliance-governance",
+    "depth": 1,
+    "sort_order": 802
+  },
+  {
+    "slug": "triage-and-containment",
+    "label": "Triage and Containment",
+    "description": "Fast incident triage, blast-radius reduction, and response playbooks.",
+    "parent": "incident-response",
+    "depth": 1,
+    "sort_order": 901
+  },
+  {
+    "slug": "post-incident-learning",
+    "label": "Post-Incident Learning",
+    "description": "Root cause analysis and prevention hardening after incidents.",
+    "parent": "incident-response",
+    "depth": 1,
+    "sort_order": 902
+  }
+]

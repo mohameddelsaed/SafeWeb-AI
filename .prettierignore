@@ -1,0 +1,12 @@
+dist
+node_modules
+*.log
+.vercel
+coverage
+build
+.cache
+.vscode
+.idea
+*.min.js
+*.min.css
+package-lock.json

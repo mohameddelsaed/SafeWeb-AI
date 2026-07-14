@@ -1,0 +1,123 @@
+version: '3.8'
+
+networks:
+  safeweb-net:
+    driver: bridge
+
+services:
+  db:
+    image: pgvector/pgvector:pg15
+    container_name: safeweb-db
+    environment:
+      POSTGRES_USER: safeweb
+      POSTGRES_PASSWORD: safeweb_password
+      POSTGRES_DB: safeweb_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - safeweb-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U safeweb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: safeweb-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - safeweb-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: safeweb-web
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql://safeweb:safeweb_password@db:5432/safeweb_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+    networks:
+      - safeweb-net
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.worker
+    container_name: safeweb-celery-worker
+    command: celery -A celery_app worker -l info --concurrency=4
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql://safeweb:safeweb_password@db:5432/safeweb_db
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - SANDBOX_HOST=agent_sandbox
+      - SANDBOX_PORT=2222
+      - SANDBOX_USER=sandbox
+      - SANDBOX_PASSWORD=sandbox_secret_key_2026
+    networks:
+      - safeweb-net
+    depends_on:
+      redis:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      agent_sandbox:
+        condition: service_healthy
+
+  agent_sandbox:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.sandbox
+    container_name: safeweb-agent-sandbox
+    ports:
+      - "2222:2222"
+    networks:
+      - safeweb-net
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "2222"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: safeweb-frontend
+    ports:
+      - "80:80"
+    networks:
+      - safeweb-net
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  redis_data:

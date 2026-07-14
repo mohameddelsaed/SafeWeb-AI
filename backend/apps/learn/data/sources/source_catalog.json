@@ -1,0 +1,120 @@
+[
+  {
+    "id": "owasp-top-10-2025",
+    "title": "OWASP Top 10 2025",
+    "provider": "OWASP",
+    "url": "https://owasp.org/Top10/2025/",
+    "version": "2025",
+    "type": "standard",
+    "license": "OWASP CC BY-SA 4.0"
+  },
+  {
+    "id": "owasp-wstg-v42",
+    "title": "OWASP Web Security Testing Guide v4.2",
+    "provider": "OWASP",
+    "url": "https://owasp.org/www-project-web-security-testing-guide/v42/",
+    "version": "4.2",
+    "type": "testing-guide",
+    "license": "OWASP CC BY-SA 4.0"
+  },
+  {
+    "id": "owasp-wstg-latest",
+    "title": "OWASP Web Security Testing Guide Latest",
+    "provider": "OWASP",
+    "url": "https://owasp.org/www-project-web-security-testing-guide/latest/",
+    "version": "latest",
+    "type": "testing-guide",
+    "license": "OWASP CC BY-SA 4.0"
+  },
+  {
+    "id": "owasp-asvs-5",
+    "title": "OWASP Application Security Verification Standard 5.0",
+    "provider": "OWASP",
+    "url": "https://owasp.org/www-project-application-security-verification-standard/",
+    "version": "5.0.0",
+    "type": "standard",
+    "license": "OWASP CC BY-SA 4.0"
+  },
+  {
+    "id": "owasp-cheat-sheets",
+    "title": "OWASP Cheat Sheet Series",
+    "provider": "OWASP",
+    "url": "https://cheatsheetseries.owasp.org/",
+    "version": "rolling",
+    "type": "cheat-sheet",
+    "license": "OWASP CC BY-SA 4.0"
+  },
+  {
+    "id": "portswigger-wsa",
+    "title": "PortSwigger Web Security Academy",
+    "provider": "PortSwigger",
+    "url": "https://portswigger.net/web-security",
+    "version": "rolling",
+    "type": "academy",
+    "license": "PortSwigger terms"
+  },
+  {
+    "id": "portswigger-research",
+    "title": "PortSwigger Research",
+    "provider": "PortSwigger",
+    "url": "https://portswigger.net/research",
+    "version": "rolling",
+    "type": "research",
+    "license": "PortSwigger terms"
+  },
+  {
+    "id": "cwe-list-4-19-1",
+    "title": "CWE List Version 4.19.1",
+    "provider": "MITRE",
+    "url": "https://cwe.mitre.org/data/index.html",
+    "version": "4.19.1",
+    "type": "weakness-taxonomy",
+    "license": "MITRE terms"
+  },
+  {
+    "id": "capec-3-9",
+    "title": "CAPEC Attack Pattern Catalog",
+    "provider": "MITRE",
+    "url": "https://capec.mitre.org/",
+    "version": "3.9",
+    "type": "attack-pattern-taxonomy",
+    "license": "MITRE terms"
+  },
+  {
+    "id": "defcon-main",
+    "title": "DEF CON Main Site and Media References",
+    "provider": "DEF CON",
+    "url": "https://defcon.org/",
+    "version": "rolling",
+    "type": "conference",
+    "license": "DEF CON terms"
+  },
+  {
+    "id": "defcon-media",
+    "title": "DEF CON Media Server",
+    "provider": "DEF CON",
+    "url": "https://media.defcon.org/",
+    "version": "rolling",
+    "type": "conference-media",
+    "license": "DEF CON terms"
+  },
+  {
+    "id": "hackerone-hacktivity-public",
+    "title": "HackerOne Public Hacktivity Surface",
+    "provider": "HackerOne",
+    "url": "https://www.hackerone.com/hacktivity",
+    "version": "rolling",
+    "type": "disclosure-feed",
+    "license": "HackerOne terms",
+    "notes": "Direct automated extraction may fail due dynamic rendering and anti-bot controls; use publicly disclosed summaries and reports manually."
+  },
+  {
+    "id": "owasp-api-top-10",
+    "title": "OWASP API Security Top 10",
+    "provider": "OWASP",
+    "url": "https://owasp.org/API-Security/",
+    "version": "rolling",
+    "type": "standard",
+    "license": "OWASP CC BY-SA 4.0"
+  }
+]

@@ -1,0 +1,96 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.venv/
+.venv/
+*.egg-info/
+*.egg
+
+# Database
+*.sqlite3
+
+# Backend logs
+backend/logs/
+
+# Media uploads
+backend/media/
+
+# Screenshots (large binary files)
+screenshots/
+
+# Nuclei community templates (cloned at runtime, ~500 MB)
+backend/apps/scanning/engine/nuclei/templates_repo/
+
+# SecLists repo cloned at runtime — not tracked in git (~2 GB)
+backend/apps/scanning/engine/payloads/data/seclists/
+
+# Locked payload file (Windows permission issue)
+backend/apps/scanning/engine/payloads/data/waf_bypass/imperva.txt
+
+# Bug bounty / scanning tools — large binaries, installed at runtime
+tools/ruby/
+tools/cargo/
+tools/rustup/
+tools/gems/
+tools/npm/
+tools/AWSBucketDump/
+tools/cloud_enum/
+tools/ghauri/
+tools/linkfinder/
+tools/secretfinder/
+tools/tplmap/
+tools/whatweb/
+tools/xsstrike/
+tools/go/pkg/
+# tools/bin — nmap scripts/libs and executables
+tools/bin/nselib/
+tools/bin/scripts/
+tools/bin/*.exe
+tools/bin/*.dll
+tools/bin/CHANGELOG
+tools/bin/LICENSE*
+tools/bin/NDIFF_README
+tools/bin/README*
+# Backup/log files
+backend/apps/chatbot/engine_old.py
+srv_err.txt
+srv_out.txt
+
+
+## Auto-added: Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+.vercel
+playwright-report/
+test-results/
+*.txt
+backend/*.txt
+runtime_toggle_proof_result.json
+.env*.local

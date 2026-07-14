@@ -1,0 +1,4 @@
+- `repo-map.md`
+- `backend/apps/accounts/models.py`
+- `backend/apps/scanning/models.py`
+- `01-research/deployment-research/multi-tenancy-patterns.md`

@@ -1,0 +1,8 @@
+backend/
+tools/
+.venv/
+node_modules/
+screenshots/
+*.sqlite3
+*.txt
+*.log

@@ -1,0 +1,123 @@
+[
+  {
+    "title": "SQL Injection in 2026: Exploitation Paths and Defensive Engineering",
+    "slug": "sql-injection-2026-exploitation-defensive-engineering",
+    "canonical_slug": "sql-injection-2026-exploitation-defensive-engineering",
+    "excerpt": "Specialist guide to SQL injection in modern stacks, including second-order cases, ORM pitfalls, and measurable secure coding defenses.",
+    "content": "# SQL Injection in 2026: Exploitation Paths and Defensive Engineering\n\n## Audience and Level\n- Target audience: Security specialists and backend developers\n- Difficulty: specialist\n- Estimated read time: 18 minutes\n\n## Why This Matters\nSQL injection remains one of the highest-impact web flaws because a single unsafe query can expose authentication data, business records, and administrative control paths. In cloud-native environments, compromise often extends beyond one database because service identities and internal APIs reuse trust relationships.\n\n## Threat Model Snapshot\n- Assets at risk: user credentials, payment records, token stores, audit logs\n- Entry points: query parameters, JSON bodies, admin filters, bulk import endpoints\n- Trust boundaries: edge API to app service, app service to DB role, worker to DB role\n- Typical attacker goals: auth bypass, bulk data extraction, privilege escalation, persistence\n\n## Attack Mechanics\nA modern attack chain usually starts with endpoint discovery and differential behavior testing. Attackers probe for parser inconsistencies, type coercion bugs, and error leaks. If direct extraction is blocked, they switch to blind timing or boolean inference. In mature targets, second-order SQLi is common: malicious input is stored safely but later concatenated unsafely in reporting or scheduled jobs.\n\n## Vulnerable Patterns\n```python\n# Vulnerable dynamic SQL in reporting pipeline\ndef run_report(sort_field: str):\n    query = f\"SELECT id,email,role FROM users ORDER BY {sort_field}\"\n    return db.execute(query).fetchall()\n```\n\n```sql\n-- Attack payload for sort_field\nemail; DROP TABLE audit_events; --\n```\n\n## Detection and Verification\n- Manual checklist: identify dynamic ORDER BY / LIMIT / table-name assembly paths\n- Automated checks: payload mutation over all typed parameters, including nested JSON\n- Telemetry indicators: DB syntax errors, unusual query shape entropy, spike in timing outliers\n- False positive control: verify with controlled replay and deterministic state assertions\n\n## Secure Implementation\n```python\nALLOWED_SORT_FIELDS = {\"email\": \"email\", \"created\": \"created_at\"}\n\ndef run_report(sort_field: str):\n    safe_field = ALLOWED_SORT_FIELDS.get(sort_field, \"created_at\")\n    query = f\"SELECT id,email,role FROM users ORDER BY {safe_field} DESC\"\n    return db.execute(query).fetchall()\n\n# Parameterization for all user-controlled values\ndef get_user(user_id: str):\n    return db.execute(\"SELECT id,email,role FROM users WHERE id = %s\", [user_id]).fetchone()\n```\n\n## Hardening Checklist\n- [x] Parameterize all user-controlled scalar inputs\n- [x] Replace dynamic identifiers with allowlisted mapping\n- [x] Enforce least-privilege DB roles per service\n- [x] Add anomaly detection for timing-based inference behavior\n- [x] Add secure query review gate in CI for high-risk modules\n\n## Mapping and References\n- OWASP: A03 Injection, ASVS v5 injection prevention requirements\n- CWE: CWE-89, CWE-564\n- WSTG: WSTG-INPV family\n- ASVS: v5.0.0 chapter 1 injection prevention controls\n\n## References\n1. https://owasp.org/Top10/2025/\n2. https://owasp.org/www-project-web-security-testing-guide/v42/\n3. https://portswigger.net/web-security/sql-injection\n4. https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html\n",
+    "category": "injection",
+    "categories": [
+      "injection-attacks",
+      "wstg-workflows"
+    ],
+    "tags": [
+      "sql-injection",
+      "owasp-top-10",
+      "wstg",
+      "cwe"
+    ],
+    "author": "Security Team",
+    "read_time": 18,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://owasp.org/Top10/2025/",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://portswigger.net/web-security/sql-injection",
+      "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+    ],
+    "cwe_ids": [
+      "CWE-89",
+      "CWE-564"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025 A03",
+      "OWASP ASVS v5"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "DOM XSS in SPA Architectures: Taint Paths, Gadgets, and Safe Rendering",
+    "slug": "dom-xss-spa-architectures-safe-rendering",
+    "canonical_slug": "dom-xss-spa-architectures-safe-rendering",
+    "excerpt": "Deep technical walkthrough of DOM XSS in modern SPAs with framework-specific sink control, CSP strategy, and verification logic.",
+    "content": "# DOM XSS in SPA Architectures: Taint Paths, Gadgets, and Safe Rendering\n\n## Audience and Level\n- Target audience: Frontend engineers and AppSec reviewers\n- Difficulty: specialist\n- Estimated read time: 16 minutes\n\n## Why This Matters\nTeams often assume framework auto-escaping solves client-side injection. In practice, hybrid rendering, unsafe markdown plugins, and ad-hoc HTML composition reintroduce executable sinks. DOM XSS can immediately compromise session context, perform API actions, and pivot to stored attack chains through content systems.\n\n## Threat Model Snapshot\n- Assets at risk: session tokens, account actions, sensitive UI data\n- Entry points: URL fragments, search params, postMessage, markdown renderers\n- Trust boundaries: browser runtime, third-party scripts, embedded widgets\n- Typical attacker goals: account takeover, transaction abuse, persistence in user content\n\n## Attack Mechanics\nAttackers trace source-to-sink paths where untrusted values reach dangerous DOM APIs. Common sources include location.hash, URLSearchParams, and message event payloads. Common sinks include innerHTML, outerHTML, insertAdjacentHTML, and dynamic script creation. Exploitation frequently chains with CSP misconfiguration, weak nonce hygiene, or legacy inline handlers.\n\n## Vulnerable Patterns\n```typescript\n// Vulnerable pattern\nconst q = new URLSearchParams(window.location.search).get('q') || '';\ndocument.getElementById('result')!.innerHTML = `<b>${q}</b>`;\n```\n\n```html\n<!-- Payload example -->\n?q=<img src=x onerror=fetch('/api/user/export',{credentials:'include'})>\n```\n\n## Detection and Verification\n- Manual checklist: enumerate sources, sinks, sanitizer boundaries, and bypass gadgets\n- Automated checks: dynamic taint tests through route params and message handlers\n- Telemetry indicators: CSP report spikes, sudden inline script violations, anomalous client requests\n- False positive control: prove code execution with constrained harmless payload before escalation\n\n## Secure Implementation\n```typescript\n// Safe rendering pattern\nconst q = new URLSearchParams(window.location.search).get('q') || '';\nconst node = document.getElementById('result');\nif (node) {\n  node.textContent = q;\n}\n\n// For rich content, sanitize with strict policy and avoid allowing script-capable attrs\nimport DOMPurify from 'dompurify';\nconst safe = DOMPurify.sanitize(userHtml, { ALLOWED_TAGS: ['p','b','i','ul','li','code'] });\ncontainer.innerHTML = safe;\n```\n\n## Hardening Checklist\n- [x] Replace direct HTML sinks with textContent where possible\n- [x] Apply strict sanitizer policy for unavoidable rich content\n- [x] Enforce CSP with nonce-based scripts and no unsafe-inline\n- [x] Isolate third-party widgets in sandboxed frames where possible\n- [x] Add route-level security tests for taint paths\n\n## Mapping and References\n- OWASP: A03 Injection, XSS prevention guidance\n- CWE: CWE-79, CWE-116\n- WSTG: WSTG-CLNT domain\n- ASVS: output encoding and sanitization controls\n\n## References\n1. https://portswigger.net/web-security/cross-site-scripting\n2. https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html\n3. https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html\n4. https://owasp.org/www-project-web-security-testing-guide/v42/\n",
+    "category": "xss",
+    "categories": [
+      "xss-and-client-side",
+      "react-and-frontend"
+    ],
+    "tags": [
+      "xss",
+      "react",
+      "csp",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 16,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/cross-site-scripting",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/"
+    ],
+    "cwe_ids": [
+      "CWE-79",
+      "CWE-116"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025 A03",
+      "OWASP Cheat Sheet Series XSS"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "API Authorization Failures: From IDOR to Multi-Step Privilege Escalation",
+    "slug": "api-authorization-failures-idor-privilege-escalation",
+    "canonical_slug": "api-authorization-failures-idor-privilege-escalation",
+    "excerpt": "Comprehensive specialist article on API authorization failures, object-level controls, and verification strategies for modern distributed systems.",
+    "content": "# API Authorization Failures: From IDOR to Multi-Step Privilege Escalation\n\n## Audience and Level\n- Target audience: API developers, platform engineers, pentesters\n- Difficulty: specialist\n- Estimated read time: 17 minutes\n\n## Why This Matters\nBroken authorization is still one of the fastest paths to critical business impact because it often bypasses complex exploit chains. Attackers do not need code execution if they can read or modify objects they do not own. In microservices, one weak endpoint can become a trust anchor for privilege escalation.\n\n## Threat Model Snapshot\n- Assets at risk: tenant data, invoice records, admin operations, PII\n- Entry points: REST object endpoints, bulk APIs, background task APIs\n- Trust boundaries: API gateway, internal service-to-service authorization, cache layers\n- Typical attacker goals: horizontal escalation, vertical escalation, mass data extraction\n\n## Attack Mechanics\nThe most common chain starts with predictable object identifiers and missing ownership checks. Attackers enumerate IDs and compare response behaviors. Next, they target write endpoints to mutate role fields, relationship links, or workflow states. In mature platforms, escalation often requires multi-step abuse: read object metadata, obtain valid transition token, then perform privileged action through a secondary endpoint that assumes prior validation.\n\n## Vulnerable Patterns\n```python\n@api_view(['GET'])\ndef get_invoice(request, invoice_id):\n    invoice = Invoice.objects.get(id=invoice_id)\n    return Response(InvoiceSerializer(invoice).data)\n```\n\n```python\nserializer = UserSerializer(user, data=request.data, partial=True)\nserializer.is_valid(raise_exception=True)\nserializer.save()  # role or admin fields may be modified\n```\n\n## Detection and Verification\n- Manual checklist: object-level, function-level, and field-level authorization matrix\n- Automated checks: actor A tries actor B object IDs across read/write/delete endpoints\n- Telemetry indicators: high 403/404 variance, bursty sequential object access, unusual cross-tenant queries\n- False positive control: verify object ownership through DB and policy evaluation logs\n\n## Secure Implementation\n```python\n@api_view(['GET'])\ndef get_invoice(request, invoice_id):\n    invoice = get_object_or_404(Invoice, id=invoice_id, tenant_id=request.user.tenant_id)\n    if not request.user.can_view_invoice(invoice):\n        return Response({'detail': 'forbidden'}, status=403)\n    return Response(InvoiceSerializer(invoice).data)\n\nclass UserProfileUpdateSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['display_name', 'phone', 'timezone']\n```\n\n## Hardening Checklist\n- [x] Enforce object ownership checks in every object endpoint\n- [x] Centralize authorization policy decisions with testable rules\n- [x] Deny by default for unknown roles and transitions\n- [x] Block sensitive fields from generic update serializers\n- [x] Include authorization regression tests in CI\n\n## Mapping and References\n- OWASP: Broken Access Control category guidance\n- CWE: CWE-639, CWE-862, CWE-915\n- WSTG: authorization and access-control testing scenarios\n- ASVS: access control requirement families\n\n## References\n1. https://owasp.org/Top10/2025/\n2. https://owasp.org/www-project-web-security-testing-guide/v42/\n3. https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html\n4. https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html\n",
+    "category": "access_control",
+    "categories": [
+      "authn-authz",
+      "rest-graphql-websocket"
+    ],
+    "tags": [
+      "idor",
+      "api-abuse",
+      "wstg",
+      "owasp-asvs"
+    ],
+    "author": "Security Team",
+    "read_time": 17,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://owasp.org/Top10/2025/",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Insecure_Direct_Object_Reference_Prevention_Cheat_Sheet.html"
+    ],
+    "cwe_ids": [
+      "CWE-639",
+      "CWE-862",
+      "CWE-915"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025 Access Control",
+      "OWASP ASVS v5 Access Control"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  }
+]

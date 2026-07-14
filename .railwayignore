@@ -1,0 +1,12 @@
+# Exclude everything except the backend
+node_modules/
+src/
+public/
+dist/
+tools/
+screenshots/
+.venv/
+*.sqlite3
+*.pyc
+__pycache__/
+.git/

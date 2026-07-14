@@ -1,0 +1,4 @@
+- Full repository tree mapped via `Get-ChildItem`
+- `SAFEWEB_AI_CODEBASE_BOOK.md`
+- `src/services/api.ts`
+- `backend/apps/scanning/engine/tools/base.py`

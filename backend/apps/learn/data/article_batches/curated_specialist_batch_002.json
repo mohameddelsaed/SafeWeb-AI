@@ -1,0 +1,316 @@
+[
+  {
+    "title": "SSRF in Cloud-Native Web Apps: Metadata Abuse and Egress Controls",
+    "slug": "ssrf-cloud-native-metadata-abuse-egress-controls",
+    "canonical_slug": "ssrf-cloud-native-metadata-abuse-egress-controls",
+    "excerpt": "Specialist guide to SSRF exploitation in cloud environments and defense patterns that stop metadata and internal network pivoting.",
+    "content": "# SSRF in Cloud-Native Web Apps: Metadata Abuse and Egress Controls\n\n## Audience and Level\n- Target audience: backend engineers and cloud security specialists\n- Difficulty: specialist\n- Estimated read time: 16 minutes\n\n## Why This Matters\nServer-side request forgery gives attackers a trusted execution vantage point inside your network boundary. In cloud deployments this can expose metadata services, temporary credentials, private control-plane APIs, and internal services that are unreachable from the public internet.\n\n## Threat Model Snapshot\n- Assets at risk: cloud instance credentials, internal admin endpoints, service mesh APIs\n- Entry points: URL fetch features, webhooks, PDF/thumbnail generators, import jobs\n- Trust boundaries: public API boundary to internal service boundary\n- Typical attacker goals: credential theft, lateral movement, data extraction\n\n## Attack Mechanics\nAttackers control a URL-like input and force backend components to fetch attacker-chosen destinations. They test direct hostnames, DNS rebinding patterns, redirects, and protocol confusion. High-value targets include metadata endpoints and internal dashboards.\n\n## Detection and Verification\n- Manual checks: identify all outbound HTTP-capable code paths\n- Dynamic checks: test localhost, private ranges, metadata paths, redirect chains\n- Telemetry: unusual outbound destinations, spikes in failed DNS lookups, metadata endpoint access\n- False positive control: verify reachable path and response evidence from server context\n\n## Secure Implementation\nApply strict destination allowlists, enforce scheme restrictions, block private and link-local IP ranges after DNS resolution, and disable automatic redirect traversal for untrusted fetch requests. Route external fetches through a hardened proxy with policy controls.\n\n## Hardening Checklist\n- [x] Destination allowlist by hostname and path\n- [x] Resolve-then-validate target IP against blocked ranges\n- [x] Disable unsafe protocols and redirect abuse\n- [x] Restrict egress from app workloads by policy\n- [x] Alert on metadata endpoint requests from application processes\n\n## Mapping and References\n- OWASP: SSRF category\n- CWE: CWE-918\n- WSTG: server-side request testing scenarios\n- ASVS: outbound request and trust boundary controls\n\n## References\n1. https://portswigger.net/web-security/ssrf\n2. https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html\n3. https://owasp.org/Top10/2025/\n4. https://owasp.org/www-project-web-security-testing-guide/v42/\n",
+    "category": "network_security",
+    "categories": [
+      "ssrf-deserialization-smuggling",
+      "cloud-native-security"
+    ],
+    "tags": [
+      "ssrf",
+      "owasp-top-10",
+      "wstg",
+      "supply-chain"
+    ],
+    "author": "Security Team",
+    "read_time": 16,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/ssrf",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "https://owasp.org/Top10/2025/",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/"
+    ],
+    "cwe_ids": [
+      "CWE-918"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 SSRF",
+      "OWASP ASVS v5"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "HTTP Request Smuggling Across Proxy Chains",
+    "slug": "http-request-smuggling-proxy-chains",
+    "canonical_slug": "http-request-smuggling-proxy-chains",
+    "excerpt": "Advanced overview of request smuggling root causes, parser mismatches, and architectural mitigations for multi-proxy stacks.",
+    "content": "# HTTP Request Smuggling Across Proxy Chains\n\n## Audience and Level\n- Target audience: platform engineers, application security specialists\n- Difficulty: specialist\n- Estimated read time: 15 minutes\n\n## Why This Matters\nParser disagreements between front-end and back-end components can let attackers smuggle hidden requests, bypass authentication layers, poison caches, and desynchronize user sessions. This risk increases with layered architectures and mixed protocol upgrades.\n\n## Threat Model Snapshot\n- Assets at risk: authenticated request channels, cache correctness, session integrity\n- Entry points: any HTTP endpoint behind reverse proxies or gateways\n- Trust boundaries: edge load balancer to API gateway to app server\n- Typical attacker goals: access control bypass, cache poisoning, credential theft\n\n## Attack Mechanics\nSmuggling attacks rely on inconsistencies in Transfer-Encoding and Content-Length handling, ambiguous header normalization, or connection reuse behavior. Attackers craft requests that one hop interprets differently from the next hop.\n\n## Detection and Verification\n- Manual checks: enumerate full request path and parser implementations\n- Dynamic checks: TE/CL variants, duplicate header tests, desync probes\n- Telemetry: malformed request spikes, backend 400/502 drift, unusual queue latency\n- False positive control: reproduce parser disagreement under controlled environment\n\n## Secure Implementation\nNormalize and reserialize requests at a trusted ingress component, reject ambiguous framing, and align parser behavior across all tiers. Disable risky protocol downgrades and enforce strict timeout and connection reuse controls.\n\n## Hardening Checklist\n- [x] Reject dual TE/CL framed requests\n- [x] Canonicalize headers at ingress\n- [x] Standardize parser versions across proxies\n- [x] Segment sensitive routes to strict gateways\n- [x] Monitor desync signals and automate blocking\n\n## Mapping and References\n- OWASP: injection and protocol abuse risk classes\n- CWE: CWE-444\n- WSTG: HTTP request handling test scenarios\n- ASVS: protocol and transport control expectations\n\n## References\n1. https://portswigger.net/web-security/request-smuggling\n2. https://owasp.org/www-project-web-security-testing-guide/v42/\n3. https://owasp.org/Top10/2025/\n4. https://cwe.mitre.org/data/definitions/444.html\n",
+    "category": "network_security",
+    "categories": [
+      "ssrf-deserialization-smuggling",
+      "wstg-workflows"
+    ],
+    "tags": [
+      "request-smuggling",
+      "wstg",
+      "owasp-top-10",
+      "capec"
+    ],
+    "author": "Security Team",
+    "read_time": 15,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/request-smuggling",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/Top10/2025/",
+      "https://cwe.mitre.org/data/definitions/444.html"
+    ],
+    "cwe_ids": [
+      "CWE-444"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025",
+      "OWASP WSTG"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Insecure Deserialization in Polyglot Service Architectures",
+    "slug": "insecure-deserialization-polyglot-service-architectures",
+    "canonical_slug": "insecure-deserialization-polyglot-service-architectures",
+    "excerpt": "How deserialization flaws emerge in distributed systems, how attackers chain gadgets, and how to enforce safe object boundaries.",
+    "content": "# Insecure Deserialization in Polyglot Service Architectures\n\n## Audience and Level\n- Target audience: backend and platform engineers\n- Difficulty: specialist\n- Estimated read time: 14 minutes\n\n## Why This Matters\nDeserialization bugs convert untrusted data into executable object graphs, enabling remote code execution, privilege abuse, or logic manipulation. In multi-language systems, assumptions about message safety often break at service boundaries.\n\n## Threat Model Snapshot\n- Assets at risk: execution integrity, queue consumers, administrative workflows\n- Entry points: session tokens, cached objects, inter-service message payloads\n- Trust boundaries: API to worker, worker to internal service, cache to app process\n- Typical attacker goals: code execution, business logic bypass, persistence\n\n## Attack Mechanics\nAttackers identify serialization formats and influence encoded payloads. They search for gadget chains and unsafe decode functions, then trigger object creation in privileged contexts such as workers or scheduled processors.\n\n## Detection and Verification\n- Manual checks: identify unsafe deserialize calls and polymorphic type decoding\n- Dynamic checks: payload mutation and gadget-chain simulation in sandbox\n- Telemetry: unexpected type materialization, worker crashes, abnormal callback behavior\n- False positive control: verify controllable payload path and deterministic trigger\n\n## Secure Implementation\nPrefer schema-validated primitive formats, disable type metadata decoding for untrusted input, and enforce strict allowlists for message types. Use integrity signatures where serialization must cross trust boundaries.\n\n## Hardening Checklist\n- [x] Remove native object deserialization for untrusted channels\n- [x] Enforce strict schema validation before decode\n- [x] Block dynamic type resolution from payload metadata\n- [x] Isolate worker privileges from sensitive controls\n- [x] Add fuzz tests for parser edge cases\n\n## Mapping and References\n- OWASP: insecure design and software integrity themes\n- CWE: CWE-502\n- WSTG: server-side logic and input processing tests\n- ASVS: data integrity and input processing requirements\n\n## References\n1. https://portswigger.net/web-security/deserialization\n2. https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html\n3. https://owasp.org/Top10/2025/\n4. https://cwe.mitre.org/data/definitions/502.html\n",
+    "category": "best_practices",
+    "categories": [
+      "ssrf-deserialization-smuggling",
+      "secure-coding"
+    ],
+    "tags": [
+      "deserialization",
+      "owasp-asvs",
+      "cwe",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 14,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/deserialization",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html",
+      "https://owasp.org/Top10/2025/",
+      "https://cwe.mitre.org/data/definitions/502.html"
+    ],
+    "cwe_ids": [
+      "CWE-502"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025",
+      "OWASP ASVS v5"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "GraphQL Authorization and Query Abuse Defense",
+    "slug": "graphql-authorization-query-abuse-defense",
+    "canonical_slug": "graphql-authorization-query-abuse-defense",
+    "excerpt": "Specialist defensive playbook for GraphQL object-level authorization, query complexity abuse, and resolver security checks.",
+    "content": "# GraphQL Authorization and Query Abuse Defense\n\n## Audience and Level\n- Target audience: API engineers and AppSec specialists\n- Difficulty: specialist\n- Estimated read time: 15 minutes\n\n## Why This Matters\nGraphQL centralizes data access into one endpoint, which increases attack blast radius when authorization is inconsistent. Attackers can enumerate schema capabilities, abuse nested queries, and exploit resolver-level trust assumptions.\n\n## Threat Model Snapshot\n- Assets at risk: tenant data, hidden fields, private relations, backend stability\n- Entry points: GraphQL queries, mutations, introspection, persisted queries\n- Trust boundaries: gateway to resolver, resolver to downstream services\n- Typical attacker goals: unauthorized data access, privilege escalation, resource exhaustion\n\n## Attack Mechanics\nAttackers probe schema exposure, then craft deeply nested or broad queries to retrieve hidden object paths. Authorization failures appear when checks exist at route level but not per resolver field or object relation.\n\n## Detection and Verification\n- Manual checks: field-level and object-level authorization matrix\n- Dynamic checks: role-differentiated query replay with nested path mutation\n- Telemetry: high complexity query spikes, resolver timeout clusters, unusual relation access\n- False positive control: validate ownership and policy logs for each unauthorized result\n\n## Secure Implementation\nImplement object-level checks in every resolver, enforce query depth and complexity budgets, disable unnecessary introspection in production, and use persisted query allowlists for sensitive operations.\n\n## Hardening Checklist\n- [x] Resolver-level authorization checks\n- [x] Query depth and complexity limits\n- [x] Disabled production introspection when not required\n- [x] Persisted query controls for critical mutations\n- [x] Tenant isolation tests for relation traversal\n\n## Mapping and References\n- OWASP: API security and access control classes\n- CWE: CWE-862, CWE-639\n- WSTG: API and access control test scenarios\n- ASVS: access-control and resource management controls\n\n## References\n1. https://portswigger.net/web-security/graphql\n2. https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html\n3. https://owasp.org/API-Security/\n4. https://owasp.org/www-project-web-security-testing-guide/v42/\n",
+    "category": "api_security",
+    "categories": [
+      "rest-graphql-websocket",
+      "api-auth-and-rate-limits"
+    ],
+    "tags": [
+      "api-abuse",
+      "idor",
+      "owasp-top-10",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 15,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/graphql",
+      "https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html",
+      "https://owasp.org/API-Security/",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/"
+    ],
+    "cwe_ids": [
+      "CWE-862",
+      "CWE-639"
+    ],
+    "owasp_refs": [
+      "OWASP API Security Top 10",
+      "OWASP Top 10 Access Control"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Strict CSP Deployment Without Breaking Modern Frontends",
+    "slug": "strict-csp-deployment-modern-frontends",
+    "canonical_slug": "strict-csp-deployment-modern-frontends",
+    "excerpt": "How to roll out nonce-based CSP in production SPAs and microfrontends while preserving functionality and reducing XSS risk.",
+    "content": "# Strict CSP Deployment Without Breaking Modern Frontends\n\n## Audience and Level\n- Target audience: frontend leads and security architects\n- Difficulty: practitioner\n- Estimated read time: 13 minutes\n\n## Why This Matters\nMany teams deploy permissive CSP directives that provide limited security value. A strict policy with nonce or hash controls can materially reduce XSS impact, but rollout fails when teams do not inventory script sources and runtime behaviors.\n\n## Threat Model Snapshot\n- Assets at risk: browser execution integrity, session context, sensitive page actions\n- Entry points: inline scripts, third-party widgets, dynamic loaders\n- Trust boundaries: first-party app code to third-party script supply chain\n- Typical attacker goals: script execution, data theft, account action forgery\n\n## Attack Mechanics\nAttackers exploit any executable script path. If policy allows unsafe-inline or broad wildcards, injected code runs with full user context. Policy bypass also appears in weak nonce reuse and unsafe dynamic loader patterns.\n\n## Detection and Verification\n- Manual checks: directive review and source inventory\n- Dynamic checks: CSP violation telemetry with staged rollout\n- Telemetry: report-uri events by route and browser family\n- False positive control: verify real exploitability of blocked or allowed paths\n\n## Secure Implementation\nStart with report-only mode, migrate to nonce-based script controls, remove unsafe-inline, and enforce strict-dynamic only when dependencies are validated. Keep a hardened fallback for legacy browsers and monitor violation trends continuously.\n\n## Hardening Checklist\n- [x] Nonce-based script execution policy\n- [x] No unsafe-inline in script-src\n- [x] Tight connect-src and frame-ancestors\n- [x] Violation reporting and triage workflow\n- [x] Third-party script governance\n\n## Mapping and References\n- OWASP: XSS prevention and security headers guidance\n- CWE: CWE-79\n- WSTG: client-side and header testing\n- ASVS: output encoding and browser control requirements\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html\n2. https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html\n3. https://portswigger.net/web-security/cross-site-scripting\n4. https://owasp.org/www-project-web-security-testing-guide/v42/\n",
+    "category": "security_headers",
+    "categories": [
+      "security-headers-and-browser-controls",
+      "react-and-frontend"
+    ],
+    "tags": [
+      "csp",
+      "security-headers",
+      "xss",
+      "owasp-top-10"
+    ],
+    "author": "Security Team",
+    "read_time": 13,
+    "difficulty_level": "practitioner",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html",
+      "https://portswigger.net/web-security/cross-site-scripting",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/"
+    ],
+    "cwe_ids": [
+      "CWE-79"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 A03",
+      "OWASP Cheat Sheet Series"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Django and DRF Secure Coding: Authorization, Serialization, and Input Safety",
+    "slug": "django-drf-secure-coding-authorization-serialization-input-safety",
+    "canonical_slug": "django-drf-secure-coding-authorization-serialization-input-safety",
+    "excerpt": "Hands-on secure coding patterns for Django and DRF focused on object permissions, serializer allowlists, and defensive defaults.",
+    "content": "# Django and DRF Secure Coding: Authorization, Serialization, and Input Safety\n\n## Audience and Level\n- Target audience: Django developers and code reviewers\n- Difficulty: practitioner\n- Estimated read time: 14 minutes\n\n## Why This Matters\nDjango and DRF provide strong primitives but insecure defaults and rushed implementation patterns can still create severe vulnerabilities. Most production incidents in these stacks come from missing object checks and over-permissive serializers.\n\n## Threat Model Snapshot\n- Assets at risk: user profiles, tenant data, billing settings, admin actions\n- Entry points: API viewsets, custom actions, file upload endpoints\n- Trust boundaries: authenticated user to protected object resources\n- Typical attacker goals: horizontal escalation, privilege abuse, data tampering\n\n## Attack Mechanics\nAttackers enumerate object IDs and probe serializer write paths. They exploit endpoints where permission classes validate authentication but do not enforce object ownership. They also target partial updates that unintentionally expose sensitive writable fields.\n\n## Detection and Verification\n- Manual checks: verify get_queryset and get_object ownership scoping\n- Dynamic checks: role-aware API replay with object ID substitution\n- Telemetry: unauthorized object access attempts and serializer validation anomalies\n- False positive control: policy and ownership evidence at DB layer\n\n## Secure Implementation\nUse explicit serializer field allowlists, enforce object-level permissions in each viewset action, and centralize tenant scoping. Avoid generic update serializers for high-privilege models and enforce schema validation for nested input structures.\n\n## Hardening Checklist\n- [x] Object-level permission enforcement\n- [x] Serializer allowlists for writable fields\n- [x] Strict tenant scoping in querysets\n- [x] Input validation for nested payloads\n- [x] Regression tests for privilege boundaries\n\n## Mapping and References\n- OWASP: broken access control and secure design\n- CWE: CWE-639, CWE-915\n- WSTG: access-control and input-validation scenarios\n- ASVS: authorization and data handling requirements\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/Django_Security_Cheat_Sheet.html\n2. https://cheatsheetseries.owasp.org/cheatsheets/Django_REST_Framework_Cheat_Sheet.html\n3. https://owasp.org/www-project-web-security-testing-guide/v42/\n4. https://owasp.org/Top10/2025/\n",
+    "category": "best_practices",
+    "categories": [
+      "django-and-drf",
+      "authn-authz"
+    ],
+    "tags": [
+      "django",
+      "drf",
+      "idor",
+      "secure-code-review"
+    ],
+    "author": "Security Team",
+    "read_time": 14,
+    "difficulty_level": "practitioner",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Django_Security_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Django_REST_Framework_Cheat_Sheet.html",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/Top10/2025/"
+    ],
+    "cwe_ids": [
+      "CWE-639",
+      "CWE-915"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 Broken Access Control",
+      "OWASP ASVS v5"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Prompt Injection in Web AI Assistants: Threat Modeling and Defenses",
+    "slug": "prompt-injection-web-ai-assistants-threat-modeling-defenses",
+    "canonical_slug": "prompt-injection-web-ai-assistants-threat-modeling-defenses",
+    "excerpt": "Security-focused guidance for LLM-enabled web applications, including prompt injection chains, tool abuse, and robust guardrail design.",
+    "content": "# Prompt Injection in Web AI Assistants: Threat Modeling and Defenses\n\n## Audience and Level\n- Target audience: AI application engineers and AppSec teams\n- Difficulty: specialist\n- Estimated read time: 15 minutes\n\n## Why This Matters\nWhen LLM features are connected to tools, APIs, and private knowledge sources, prompt injection can become an authorization bypass layer that manipulates model behavior and causes high-impact side effects.\n\n## Threat Model Snapshot\n- Assets at risk: internal docs, API tokens, tool actions, user data\n- Entry points: user prompts, retrieved documents, plugin outputs, external pages\n- Trust boundaries: model context boundary to tool execution boundary\n- Typical attacker goals: data exfiltration, privilege abuse, policy bypass\n\n## Attack Mechanics\nAttackers plant instructions in user input or retrieved content that attempt to override system rules. They chain this with tool invocation requests, data extraction prompts, and output transformations to bypass guardrails.\n\n## Detection and Verification\n- Manual checks: map all model context sources and tool permissions\n- Dynamic checks: adversarial prompt suites and retrieval poisoning simulations\n- Telemetry: tool-call anomalies, high-risk prompt patterns, unusual extraction behaviors\n- False positive control: correlate model output with policy engine decisions\n\n## Secure Implementation\nUse strict tool allowlists, scoped credentials, output policy enforcement, retrieval sanitization, and independent authorization checks outside the model. Model responses should never be treated as trusted policy decisions.\n\n## Hardening Checklist\n- [x] Tool invocation policy with least privilege\n- [x] Out-of-model authorization checks for sensitive actions\n- [x] Retrieval content risk scoring and sanitization\n- [x] Prompt injection detection and response controls\n- [x] Continuous adversarial testing for model workflows\n\n## Mapping and References\n- OWASP: AI security and secure design controls\n- CWE: mapped to broader injection and trust-boundary weaknesses\n- WSTG: adapted methodology for model-integrated features\n- ASVS: architecture and control verification principles\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html\n2. https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html\n3. https://portswigger.net/web-security/llm-attacks\n4. https://owasp.org/Top10/2025/\n",
+    "category": "best_practices",
+    "categories": [
+      "prompt-injection-and-agent-abuse",
+      "model-data-and-output-security"
+    ],
+    "tags": [
+      "llm-security",
+      "owasp-top-10",
+      "portswigger",
+      "threat-modeling"
+    ],
+    "author": "Security Team",
+    "read_time": 15,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html",
+      "https://portswigger.net/web-security/llm-attacks",
+      "https://owasp.org/Top10/2025/"
+    ],
+    "cwe_ids": [
+      "CWE-20"
+    ],
+    "owasp_refs": [
+      "OWASP AI guidance",
+      "OWASP Top 10 2025"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Dependency Confusion and Software Supply Chain Controls for Web Platforms",
+    "slug": "dependency-confusion-software-supply-chain-controls-web-platforms",
+    "canonical_slug": "dependency-confusion-software-supply-chain-controls-web-platforms",
+    "excerpt": "Practical controls for preventing dependency confusion, artifact tampering, and insecure package ingestion in CI/CD pipelines.",
+    "content": "# Dependency Confusion and Software Supply Chain Controls for Web Platforms\n\n## Audience and Level\n- Target audience: DevSecOps engineers and platform security teams\n- Difficulty: practitioner\n- Estimated read time: 14 minutes\n\n## Why This Matters\nModern web applications rely on large dependency graphs and automated build pipelines. A single poisoned dependency can compromise build integrity, leak secrets, and introduce hidden runtime backdoors.\n\n## Threat Model Snapshot\n- Assets at risk: CI secrets, production artifacts, deployment credentials, application integrity\n- Entry points: public package registries, transitive dependencies, build plugins\n- Trust boundaries: source repository to CI runner to artifact registry\n- Typical attacker goals: code execution in CI, artifact poisoning, long-term persistence\n\n## Attack Mechanics\nAttackers publish malicious packages with names matching internal dependencies or exploit version resolution precedence. They target build systems that pull from mixed public/private registries without strict namespace and signature controls.\n\n## Detection and Verification\n- Manual checks: registry precedence, namespace reservations, lockfile enforcement\n- Dynamic checks: red-team simulation with controlled package names\n- Telemetry: unexpected package sources, hash drift, signature failures\n- False positive control: verify package provenance and reproducible build output\n\n## Secure Implementation\nEnforce private registry pinning, signed package verification, immutable lockfiles, and SBOM generation with policy checks. Require review gates for dependency upgrades and isolate build credentials by scope.\n\n## Hardening Checklist\n- [x] Private registry namespace controls\n- [x] Immutable lockfiles and deterministic builds\n- [x] Signature and provenance verification\n- [x] SBOM generation and policy enforcement\n- [x] CI credential segmentation and rotation\n\n## Mapping and References\n- OWASP: software integrity and vulnerable component risks\n- CWE: software supply chain weakness families\n- WSTG: supporting methodology for component testing\n- ASVS: integrity and dependency management requirements\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/Vulnerable_Dependency_Management_Cheat_Sheet.html\n2. https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html\n3. https://owasp.org/Top10/2025/\n4. https://cwe.mitre.org/data/index.html\n",
+    "category": "best_practices",
+    "categories": [
+      "iac-and-supply-chain",
+      "compliance-governance"
+    ],
+    "tags": [
+      "supply-chain",
+      "owasp-asvs",
+      "cwe",
+      "secure-code-review"
+    ],
+    "author": "Security Team",
+    "read_time": 14,
+    "difficulty_level": "practitioner",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Vulnerable_Dependency_Management_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html",
+      "https://owasp.org/Top10/2025/",
+      "https://cwe.mitre.org/data/index.html"
+    ],
+    "cwe_ids": [
+      "CWE-1104"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 Vulnerable Components",
+      "OWASP ASVS v5"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  }
+]

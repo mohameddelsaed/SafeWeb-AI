@@ -1,0 +1,33 @@
+FROM python:3.11-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install SSH server and base networking/security tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openssh-server \
+    nmap \
+    sqlmap \
+    curl \
+    wget \
+    git \
+    net-tools \
+    netcat-openbsd \
+    iproute2 \
+    procps \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configure SSH daemon for Celery worker connection
+RUN mkdir /var/run/sshd
+RUN useradd -m -s /bin/bash sandbox && echo "sandbox:sandbox_secret_key_2026" | chpasswd
+
+# Setup SSH configuration
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config \
+    && sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config \
+    && echo "Port 2222" >> /etc/ssh/sshd_config
+
+EXPOSE 2222
+
+HEALTHCHECK --interval=10s --timeout=5s --retries=3 \
+    CMD nc -z localhost 2222 || exit 1
+
+CMD ["/usr/sbin/sshd", "-D"]

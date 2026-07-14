@@ -1,0 +1,1252 @@
+[
+    {
+        "title":  "Practitioner: WebSocket Auth Abuse Testing and Remediation for Regulated Environments",
+        "slug":  "practitioner-websocket-auth-abuse-testing-and-remediation-for-regulated-environments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Passwordless Security Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-passwordless-security-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Resource Ownership Checks Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-resource-ownership-checks-testing-and-remediation-for-saas-platforms",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Header Governance at Scale Testing and Remediation in Multi-Tenant Architectures",
+        "slug":  "practitioner-header-governance-at-scale-testing-and-remediation-in-multi-tenant-architectures",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Key Management Testing and Remediation for API-First Products",
+        "slug":  "practitioner-key-management-testing-and-remediation-for-api-first-products",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Layer-7 Resilience Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-layer-7-resilience-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Threat Modeling Workflows Testing and Remediation for High-Risk Business Workflows",
+        "slug":  "practitioner-threat-modeling-workflows-testing-and-remediation-for-high-risk-business-workflows",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: ORM Injection Drift Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-orm-injection-drift-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Script Gadget Abuse Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-script-gadget-abuse-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: API Versioning Security Testing and Remediation in Incident-Prone Production Systems",
+        "slug":  "practitioner-api-versioning-security-testing-and-remediation-in-incident-prone-production-systems",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Session Management Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-session-management-testing-and-remediation-for-saas-platforms",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Tenant Isolation Testing and Remediation for API-First Products",
+        "slug":  "practitioner-tenant-isolation-testing-and-remediation-for-api-first-products",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Clickjacking Defense Testing and Remediation in Cloud-Native Deployments",
+        "slug":  "practitioner-clickjacking-defense-testing-and-remediation-in-cloud-native-deployments",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Secret Rotation Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-secret-rotation-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Abuse-Driven Incident Triage Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-abuse-driven-incident-triage-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Evidence-Based Remediation Testing and Remediation for Regulated Environments",
+        "slug":  "practitioner-evidence-based-remediation-testing-and-remediation-for-regulated-environments",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: NoSQL Injection Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-nosql-injection-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Reflected XSS Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-reflected-xss-testing-and-remediation-for-saas-platforms",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: WebSocket Auth Abuse Testing and Remediation in Multi-Tenant Architectures",
+        "slug":  "practitioner-websocket-auth-abuse-testing-and-remediation-in-multi-tenant-architectures",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Passwordless Security Testing and Remediation for API-First Products",
+        "slug":  "practitioner-passwordless-security-testing-and-remediation-for-api-first-products",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Resource Ownership Checks Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-resource-ownership-checks-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Header Governance at Scale Testing and Remediation for High-Risk Business Workflows",
+        "slug":  "practitioner-header-governance-at-scale-testing-and-remediation-for-high-risk-business-workflows",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Key Management Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-key-management-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Layer-7 Resilience Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-layer-7-resilience-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Threat Modeling Workflows Testing and Remediation in Incident-Prone Production Systems",
+        "slug":  "practitioner-threat-modeling-workflows-testing-and-remediation-in-incident-prone-production-systems",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Command Injection Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-command-injection-testing-and-remediation-for-saas-platforms",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Script Gadget Abuse Testing and Remediation for API-First Products",
+        "slug":  "practitioner-script-gadget-abuse-testing-and-remediation-for-api-first-products",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: API Versioning Security Testing and Remediation in Cloud-Native Deployments",
+        "slug":  "practitioner-api-versioning-security-testing-and-remediation-in-cloud-native-deployments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Session Management Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-session-management-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Tenant Isolation Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-tenant-isolation-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Clickjacking Defense Testing and Remediation for Regulated Environments",
+        "slug":  "practitioner-clickjacking-defense-testing-and-remediation-for-regulated-environments",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Secret Rotation Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-secret-rotation-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Abuse-Driven Incident Triage Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-abuse-driven-incident-triage-testing-and-remediation-for-saas-platforms",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Evidence-Based Remediation Testing and Remediation in Multi-Tenant Architectures",
+        "slug":  "practitioner-evidence-based-remediation-testing-and-remediation-in-multi-tenant-architectures",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  14,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: XPath Injection Testing and Remediation for API-First Products",
+        "slug":  "practitioner-xpath-injection-testing-and-remediation-for-api-first-products",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Reflected XSS Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-reflected-xss-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: WebSocket Auth Abuse Testing and Remediation for High-Risk Business Workflows",
+        "slug":  "practitioner-websocket-auth-abuse-testing-and-remediation-for-high-risk-business-workflows",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Passwordless Security Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-passwordless-security-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Resource Ownership Checks Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-resource-ownership-checks-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Header Governance at Scale Testing and Remediation in Incident-Prone Production Systems",
+        "slug":  "practitioner-header-governance-at-scale-testing-and-remediation-in-incident-prone-production-systems",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  12,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Key Management Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-key-management-testing-and-remediation-for-saas-platforms",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Layer-7 Resilience Testing and Remediation for API-First Products",
+        "slug":  "practitioner-layer-7-resilience-testing-and-remediation-for-api-first-products",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Threat Modeling Workflows Testing and Remediation in Cloud-Native Deployments",
+        "slug":  "practitioner-threat-modeling-workflows-testing-and-remediation-in-cloud-native-deployments",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: SQL Injection Testing and Remediation for Modern SPAs and BFFs",
+        "slug":  "practitioner-sql-injection-testing-and-remediation-for-modern-spas-and-bffs",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Script Gadget Abuse Testing and Remediation in Zero-Trust Service Meshes",
+        "slug":  "practitioner-script-gadget-abuse-testing-and-remediation-in-zero-trust-service-meshes",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: API Versioning Security Testing and Remediation for Regulated Environments",
+        "slug":  "practitioner-api-versioning-security-testing-and-remediation-for-regulated-environments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Session Management Testing and Remediation for CI/CD and Release Pipelines",
+        "slug":  "practitioner-session-management-testing-and-remediation-for-ci-cd-and-release-pipelines",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  11,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Tenant Isolation Testing and Remediation for SaaS Platforms",
+        "slug":  "practitioner-tenant-isolation-testing-and-remediation-for-saas-platforms",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  13,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Clickjacking Defense Testing and Remediation in Multi-Tenant Architectures",
+        "slug":  "practitioner-clickjacking-defense-testing-and-remediation-in-multi-tenant-architectures",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    },
+    {
+        "title":  "Practitioner: Secret Rotation Testing and Remediation for API-First Products",
+        "slug":  "practitioner-secret-rotation-testing-and-remediation-for-api-first-products",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "practitioner",
+        "read_time":  15,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Hands-on testing, remediation depth, and production controls"
+    }
+]

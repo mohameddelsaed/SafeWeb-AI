@@ -1,0 +1,19 @@
+# Force Python provider — prevent Nixpacks from auto-detecting Node.js
+providers = []
+
+[phases.setup]
+nixPkgs = ["python311", "python311Packages.pip", "file"]
+
+[phases.install]
+cmds = ["pip install --break-system-packages -r backend/requirements.txt"]
+
+[phases.build]
+cmds = [
+  "cd backend && DJANGO_SETTINGS_MODULE=config.settings.base python manage.py collectstatic --no-input",
+  "cd backend && DJANGO_SETTINGS_MODULE=config.settings.base python manage.py migrate",
+  "cd backend && DJANGO_SETTINGS_MODULE=config.settings.base python manage.py bootstrap_learning_center",
+  "cd backend && DJANGO_SETTINGS_MODULE=config.settings.base python create_admin.py"
+]
+
+[start]
+cmd = "cd backend && DJANGO_SETTINGS_MODULE=config.settings.base python -m gunicorn config.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --timeout 120 --log-level info --access-logfile - --error-logfile -"

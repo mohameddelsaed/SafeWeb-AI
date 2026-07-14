@@ -1,0 +1,1252 @@
+[
+    {
+        "title":  "Foundation: SQL Injection Fundamentals for SaaS Platforms",
+        "slug":  "foundation-sql-injection-fundamentals-for-saas-platforms",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Reflected XSS Fundamentals for API-First Products",
+        "slug":  "foundation-reflected-xss-fundamentals-for-api-first-products",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: WebSocket Auth Abuse Fundamentals in Cloud-Native Deployments",
+        "slug":  "foundation-websocket-auth-abuse-fundamentals-in-cloud-native-deployments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Passwordless Security Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-passwordless-security-fundamentals-for-modern-spas-and-bffs",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Resource Ownership Checks Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-resource-ownership-checks-fundamentals-in-zero-trust-service-meshes",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Header Governance at Scale Fundamentals for Regulated Environments",
+        "slug":  "foundation-header-governance-at-scale-fundamentals-for-regulated-environments",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Key Management Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-key-management-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Layer-7 Resilience Fundamentals for SaaS Platforms",
+        "slug":  "foundation-layer-7-resilience-fundamentals-for-saas-platforms",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Threat Modeling Workflows Fundamentals in Multi-Tenant Architectures",
+        "slug":  "foundation-threat-modeling-workflows-fundamentals-in-multi-tenant-architectures",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Template Injection Fundamentals for API-First Products",
+        "slug":  "foundation-template-injection-fundamentals-for-api-first-products",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Script Gadget Abuse Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-script-gadget-abuse-fundamentals-for-modern-spas-and-bffs",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: API Versioning Security Fundamentals for High-Risk Business Workflows",
+        "slug":  "foundation-api-versioning-security-fundamentals-for-high-risk-business-workflows",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Session Management Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-session-management-fundamentals-in-zero-trust-service-meshes",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Tenant Isolation Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-tenant-isolation-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Clickjacking Defense Fundamentals in Incident-Prone Production Systems",
+        "slug":  "foundation-clickjacking-defense-fundamentals-in-incident-prone-production-systems",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Secret Rotation Fundamentals for SaaS Platforms",
+        "slug":  "foundation-secret-rotation-fundamentals-for-saas-platforms",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Abuse-Driven Incident Triage Fundamentals for API-First Products",
+        "slug":  "foundation-abuse-driven-incident-triage-fundamentals-for-api-first-products",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Evidence-Based Remediation Fundamentals in Cloud-Native Deployments",
+        "slug":  "foundation-evidence-based-remediation-fundamentals-in-cloud-native-deployments",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: LDAP Injection Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-ldap-injection-fundamentals-for-modern-spas-and-bffs",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Reflected XSS Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-reflected-xss-fundamentals-in-zero-trust-service-meshes",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: WebSocket Auth Abuse Fundamentals for Regulated Environments",
+        "slug":  "foundation-websocket-auth-abuse-fundamentals-for-regulated-environments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Passwordless Security Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-passwordless-security-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Resource Ownership Checks Fundamentals for SaaS Platforms",
+        "slug":  "foundation-resource-ownership-checks-fundamentals-for-saas-platforms",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Header Governance at Scale Fundamentals in Multi-Tenant Architectures",
+        "slug":  "foundation-header-governance-at-scale-fundamentals-in-multi-tenant-architectures",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Key Management Fundamentals for API-First Products",
+        "slug":  "foundation-key-management-fundamentals-for-api-first-products",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Layer-7 Resilience Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-layer-7-resilience-fundamentals-for-modern-spas-and-bffs",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Threat Modeling Workflows Fundamentals for High-Risk Business Workflows",
+        "slug":  "foundation-threat-modeling-workflows-fundamentals-for-high-risk-business-workflows",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: ORM Injection Drift Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-orm-injection-drift-fundamentals-in-zero-trust-service-meshes",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Script Gadget Abuse Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-script-gadget-abuse-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: API Versioning Security Fundamentals in Incident-Prone Production Systems",
+        "slug":  "foundation-api-versioning-security-fundamentals-in-incident-prone-production-systems",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Session Management Fundamentals for SaaS Platforms",
+        "slug":  "foundation-session-management-fundamentals-for-saas-platforms",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Tenant Isolation Fundamentals for API-First Products",
+        "slug":  "foundation-tenant-isolation-fundamentals-for-api-first-products",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Clickjacking Defense Fundamentals in Cloud-Native Deployments",
+        "slug":  "foundation-clickjacking-defense-fundamentals-in-cloud-native-deployments",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Secret Rotation Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-secret-rotation-fundamentals-for-modern-spas-and-bffs",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Abuse-Driven Incident Triage Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-abuse-driven-incident-triage-fundamentals-in-zero-trust-service-meshes",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Evidence-Based Remediation Fundamentals for Regulated Environments",
+        "slug":  "foundation-evidence-based-remediation-fundamentals-for-regulated-environments",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: NoSQL Injection Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-nosql-injection-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Reflected XSS Fundamentals for SaaS Platforms",
+        "slug":  "foundation-reflected-xss-fundamentals-for-saas-platforms",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: WebSocket Auth Abuse Fundamentals in Multi-Tenant Architectures",
+        "slug":  "foundation-websocket-auth-abuse-fundamentals-in-multi-tenant-architectures",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Passwordless Security Fundamentals for API-First Products",
+        "slug":  "foundation-passwordless-security-fundamentals-for-api-first-products",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Resource Ownership Checks Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-resource-ownership-checks-fundamentals-for-modern-spas-and-bffs",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Header Governance at Scale Fundamentals for High-Risk Business Workflows",
+        "slug":  "foundation-header-governance-at-scale-fundamentals-for-high-risk-business-workflows",
+        "category":  "security_headers",
+        "categories":  [
+                           "security-headers-and-browser-controls",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "security-headers",
+                     "csp",
+                     "wstg",
+                     "owasp-top-10"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "owasp-wstg-v42",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Key Management Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-key-management-fundamentals-in-zero-trust-service-meshes",
+        "category":  "cryptography",
+        "categories":  [
+                           "cryptography-and-secrets",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "cryptography",
+                     "jwt-security",
+                     "owasp-asvs",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "defcon-media",
+                           "cwe-list-4-19-1",
+                           "capec-3-9"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Layer-7 Resilience Fundamentals for CI/CD and Release Pipelines",
+        "slug":  "foundation-layer-7-resilience-fundamentals-for-ci-cd-and-release-pipelines",
+        "category":  "network_security",
+        "categories":  [
+                           "logging-monitoring-detection",
+                           "triage-and-containment"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  8,
+        "tags":  [
+                     "incident-response",
+                     "network-security",
+                     "wstg",
+                     "threat-modeling"
+                 ],
+        "source_ids":  [
+                           "owasp-wstg-v42",
+                           "portswigger-research",
+                           "defcon-main",
+                           "defcon-media",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Threat Modeling Workflows Fundamentals in Incident-Prone Production Systems",
+        "slug":  "foundation-threat-modeling-workflows-fundamentals-in-incident-prone-production-systems",
+        "category":  "best_practices",
+        "categories":  [
+                           "secure-coding",
+                           "wstg-workflows"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "secure-code-review",
+                     "input-validation",
+                     "owasp-asvs",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-cheat-sheets",
+                           "owasp-asvs-5",
+                           "owasp-top-10-2025",
+                           "hackerone-hacktivity-public",
+                           "defcon-main"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Command Injection Fundamentals for SaaS Platforms",
+        "slug":  "foundation-command-injection-fundamentals-for-saas-platforms",
+        "category":  "injection",
+        "categories":  [
+                           "injection-attacks",
+                           "secure-coding"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "sql-injection",
+                     "nosql-injection",
+                     "input-validation",
+                     "secure-code-review"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Script Gadget Abuse Fundamentals for API-First Products",
+        "slug":  "foundation-script-gadget-abuse-fundamentals-for-api-first-products",
+        "category":  "xss",
+        "categories":  [
+                           "xss-and-client-side",
+                           "react-and-frontend"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  12,
+        "tags":  [
+                     "xss",
+                     "csp",
+                     "output-encoding",
+                     "react"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "portswigger-wsa",
+                           "portswigger-research",
+                           "owasp-wstg-v42",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: API Versioning Security Fundamentals in Cloud-Native Deployments",
+        "slug":  "foundation-api-versioning-security-fundamentals-in-cloud-native-deployments",
+        "category":  "api_security",
+        "categories":  [
+                           "rest-graphql-websocket",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  9,
+        "tags":  [
+                     "api-abuse",
+                     "oauth2",
+                     "jwt-security",
+                     "wstg"
+                 ],
+        "source_ids":  [
+                           "owasp-api-top-10",
+                           "owasp-asvs-5",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Session Management Fundamentals for Modern SPAs and BFFs",
+        "slug":  "foundation-session-management-fundamentals-for-modern-spas-and-bffs",
+        "category":  "authentication",
+        "categories":  [
+                           "authn-authz",
+                           "api-auth-and-rate-limits"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  10,
+        "tags":  [
+                     "oauth2",
+                     "oidc",
+                     "jwt-security",
+                     "session-management"
+                 ],
+        "source_ids":  [
+                           "owasp-asvs-5",
+                           "owasp-cheat-sheets",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    },
+    {
+        "title":  "Foundation: Tenant Isolation Fundamentals in Zero-Trust Service Meshes",
+        "slug":  "foundation-tenant-isolation-fundamentals-in-zero-trust-service-meshes",
+        "category":  "access_control",
+        "categories":  [
+                           "authn-authz",
+                           "defensive-architecture"
+                       ],
+        "difficulty_level":  "foundation",
+        "read_time":  11,
+        "tags":  [
+                     "idor",
+                     "api-abuse",
+                     "threat-modeling",
+                     "owasp-asvs"
+                 ],
+        "source_ids":  [
+                           "owasp-top-10-2025",
+                           "owasp-wstg-v42",
+                           "portswigger-wsa",
+                           "hackerone-hacktivity-public",
+                           "cwe-list-4-19-1"
+                       ],
+        "learning_goal":  "Fundamentals, attack awareness, and secure coding baseline"
+    }
+]

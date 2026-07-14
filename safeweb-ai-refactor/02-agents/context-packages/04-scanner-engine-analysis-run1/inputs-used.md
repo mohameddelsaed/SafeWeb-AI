@@ -1,0 +1,4 @@
+- `repo-map.md`
+- `backend/apps/scanning/engine/orchestrator.py`
+- `backend/apps/scanning/engine/tools/base.py`
+- `01-research/tool-availability-matrix/index.md`

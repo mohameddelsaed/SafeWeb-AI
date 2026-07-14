@@ -1,0 +1,14 @@
+{
+    "reportAttributeAccessIssue": "none",
+    "reportOperatorIssue": "none",
+    "reportIndexIssue": "none",
+    "reportMissingImports": "warning",
+    "reportReturnType": "none",
+    "reportCallIssue": "none",
+    "reportArgumentType": "none",
+    "reportGeneralTypeIssues": "none",
+    "pythonVersion": "3.14",
+    "pythonPlatform": "Windows",
+    "venvPath": "backend",
+    "venv": "venv"
+}

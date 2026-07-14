@@ -1,0 +1,7 @@
+# Bandit configuration and waiver list for SafeWeb AI backend
+# Complies with QA Plan Phase A2: Address high/critical issues or waive with reason.
+
+# Waived Test IDs and Justifications:
+# B501 (request_with_no_cert_validation): Active penetration testing scanner must connect to targets regardless of invalid, expired, or self-signed SSL/TLS certificates.
+# B324 (hashlib): MD5 and SHA1 are used exclusively for non-cryptographic cache key generation, deduplication IDs, and fuzzing wordlist creation.
+skips: ['B501', 'B324']

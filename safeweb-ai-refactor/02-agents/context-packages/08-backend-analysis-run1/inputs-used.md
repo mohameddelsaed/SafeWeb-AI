@@ -1,0 +1,5 @@
+- `repo-map.md`
+- `integration-points.md`
+- `current-architecture-assessment.md`
+- `backend/apps/scanning/views.py`
+- `backend/apps/scanning/engine/orchestrator.py`

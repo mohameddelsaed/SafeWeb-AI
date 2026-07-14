@@ -1,0 +1,201 @@
+[
+  {
+    "title": "OAuth 2.0 and Session Token Abuse in Web Applications",
+    "slug": "oauth2-session-token-abuse-web-applications",
+    "canonical_slug": "oauth2-session-token-abuse-web-applications",
+    "excerpt": "Specialist-level guidance for defending OAuth 2.0 web flows against token replay, scope abuse, and session fixation drift.",
+    "content": "# OAuth 2.0 and Session Token Abuse in Web Applications\n\n## Audience and Level\n- Target audience: authentication architects, backend developers, AppSec specialists\n- Difficulty: specialist\n- Estimated read time: 16 minutes\n\n## Why This Matters\nOAuth deployments fail most often at integration boundaries, not protocol basics. Teams implement secure authorization code flows but weaken end-to-end security through refresh token overexposure, weak session binding, inconsistent revocation, and permissive scope defaults. Attackers do not need cryptographic breaks when they can replay valid tokens or exploit lifecycle gaps.\n\n## Threat Model Snapshot\n- Assets at risk: access tokens, refresh tokens, long-lived sessions, delegated account actions\n- Entry points: callback endpoints, token storage, mobile/web hybrid flows, device code fallback\n- Trust boundaries: browser session boundary, identity provider boundary, API resource server boundary\n- Typical attacker goals: token replay, privilege escalation via scope confusion, persistent account takeover\n\n## Attack Mechanics\nAttackers target callback leakage, malicious redirect chain manipulation, and token theft from weak client storage. They exploit weak state validation, nonce reuse, and overbroad scopes that make compromised tokens high impact. In multi-service environments, they replay valid tokens against downstream APIs where audience and issuer validation are incomplete. They also abuse session rotation gaps after login or privilege changes.\n\n## Detection and Verification\n- Manual checks: strict state and nonce validation, token audience/issuer verification, refresh-token rotation checks\n- Dynamic checks: replay previous tokens, race refresh calls, force revoked-token usage, scope confusion tests\n- Telemetry indicators: token reuse across different IP/device profiles, repeated refresh failures, unusual scope usage\n- False positive control: verify token lifecycle events with identity provider logs and API authorization logs\n\n## Secure Implementation\nUse authorization code with PKCE for public clients and enforce one-time authorization code usage. Store refresh tokens server-side or in hardened secure contexts, rotate on use, and detect reuse. Validate issuer, audience, subject, and expiration for every API call. Couple session identifiers to authentication context and rotate session secrets on privilege elevation. Apply short access token lifetime and explicit scope allowlists per client.\n\n## Hardening Checklist\n- [x] PKCE and strict redirect URI allowlisting\n- [x] Refresh token rotation with reuse detection\n- [x] Session rotation on login and privilege transitions\n- [x] Audience and issuer checks in every resource server\n- [x] Minimal scopes and explicit per-client grants\n\n## Mapping and References\n- OWASP: authentication and access control risk domains\n- CWE: CWE-287, CWE-613\n- WSTG: authentication/session testing scenarios\n- ASVS: identity and session management controls\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html\n2. https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html\n3. https://owasp.org/www-project-web-security-testing-guide/v42/\n4. https://owasp.org/www-project-application-security-verification-standard/\n",
+    "category": "authentication",
+    "categories": [
+      "authn-authz",
+      "api-auth-and-rate-limits"
+    ],
+    "tags": [
+      "oauth2",
+      "jwt-security",
+      "session-management",
+      "owasp-asvs"
+    ],
+    "author": "Security Team",
+    "read_time": 16,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/OAuth2_Cheat_Sheet.html",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/www-project-application-security-verification-standard/"
+    ],
+    "cwe_ids": [
+      "CWE-287",
+      "CWE-613"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 Authentication",
+      "OWASP ASVS v5 Session Controls"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "Web Cache Deception and Cache Key Security Engineering",
+    "slug": "web-cache-deception-cache-key-security-engineering",
+    "canonical_slug": "web-cache-deception-cache-key-security-engineering",
+    "excerpt": "How attackers poison or deceive cache layers, and how to design cache-safe routing, keys, and response controls.",
+    "content": "# Web Cache Deception and Cache Key Security Engineering\n\n## Audience and Level\n- Target audience: platform engineers, CDN operators, AppSec specialists\n- Difficulty: specialist\n- Estimated read time: 15 minutes\n\n## Why This Matters\nModern web performance depends on aggressive caching at multiple tiers. If cache keys are weak or route normalization is inconsistent, private responses can be stored and replayed across users. These issues produce silent confidentiality failures that traditional vulnerability scans miss unless cache behavior is explicitly modeled.\n\n## Threat Model Snapshot\n- Assets at risk: user-specific pages, account data fragments, authenticated API responses\n- Entry points: path normalization ambiguity, extension-based routing, header variance mismatches\n- Trust boundaries: origin server response classification to CDN cache policy layer\n- Typical attacker goals: leak victim content, force stale security decisions, bypass authorization assumptions\n\n## Attack Mechanics\nAttackers craft URLs that trigger origin handling as authenticated content while forcing CDN interpretation as cacheable static assets. They abuse path suffixes, encoded delimiters, and missing Vary controls. In poisoning scenarios, they target headers or query parameters that influence origin output but are excluded from the cache key.\n\n## Detection and Verification\n- Manual checks: map cache key composition versus all response-affecting inputs\n- Dynamic checks: cross-user replay tests, path normalization fuzzing, Vary header verification\n- Telemetry indicators: unusual cache hit rates on authenticated routes, user reports of cross-account content\n- False positive control: confirm cache key collision and reproducible cross-context replay\n\n## Secure Implementation\nDefine explicit no-store/no-cache rules for authenticated and personalized responses. Ensure all response-affecting headers and parameters are represented in cache keys. Normalize URL paths before cache classification, and reject ambiguous encodings. Adopt deterministic route handling between origin and edge.\n\n## Hardening Checklist\n- [x] No caching for authenticated personalized responses\n- [x] Complete cache key include-list for dynamic dimensions\n- [x] Canonical path normalization at ingress and edge\n- [x] Strict Vary header policy reviews\n- [x] Continuous synthetic cache abuse tests\n\n## Mapping and References\n- OWASP: insecure design, access control, and data exposure overlap\n- CWE: CWE-525, CWE-200\n- WSTG: configuration and business logic validation\n- ASVS: response handling and data protection requirements\n\n## References\n1. https://portswigger.net/web-security/web-cache-deception\n2. https://portswigger.net/web-security/web-cache-poisoning\n3. https://owasp.org/www-project-web-security-testing-guide/v42/\n4. https://owasp.org/Top10/2025/\n",
+    "category": "network_security",
+    "categories": [
+      "security-headers-and-browser-controls",
+      "verification-and-fp-reduction"
+    ],
+    "tags": [
+      "cache-poisoning",
+      "wstg",
+      "portswigger",
+      "owasp-top-10"
+    ],
+    "author": "Security Team",
+    "read_time": 15,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://portswigger.net/web-security/web-cache-deception",
+      "https://portswigger.net/web-security/web-cache-poisoning",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/Top10/2025/"
+    ],
+    "cwe_ids": [
+      "CWE-525",
+      "CWE-200"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025",
+      "OWASP WSTG Configuration Testing"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "CSRF in SPA and API-Driven Apps: Token Binding and Browser Signal Strategy",
+    "slug": "csrf-spa-api-driven-apps-token-binding-browser-signals",
+    "canonical_slug": "csrf-spa-api-driven-apps-token-binding-browser-signals",
+    "excerpt": "Modern CSRF defense architecture for cookie-authenticated SPAs and API ecosystems using layered browser signals and token verification.",
+    "content": "# CSRF in SPA and API-Driven Apps: Token Binding and Browser Signal Strategy\n\n## Audience and Level\n- Target audience: web application developers and AppSec engineers\n- Difficulty: practitioner\n- Estimated read time: 14 minutes\n\n## Why This Matters\nTeams often assume CSRF is solved once they adopt JSON APIs, but cookie-based authentication and implicit browser credential forwarding keep CSRF relevant. Modern browsers help with SameSite and Fetch metadata headers, yet robust defense still requires intentional server-side validation design.\n\n## Threat Model Snapshot\n- Assets at risk: account settings, financial actions, administrative mutations\n- Entry points: state-changing endpoints that accept browser credentials\n- Trust boundaries: trusted same-site interactions versus cross-site initiations\n- Typical attacker goals: perform unwanted actions under victim session\n\n## Attack Mechanics\nAttackers host malicious pages that trigger state-changing requests to target applications where victim cookies are sent automatically. They exploit missing CSRF token checks, overly permissive CORS policies, and fallback form handlers that bypass API-specific controls.\n\n## Detection and Verification\n- Manual checks: map all unsafe HTTP methods and validate anti-CSRF controls per endpoint\n- Dynamic checks: forged cross-site form posts and script-initiated requests with controlled origins\n- Telemetry indicators: unusual state changes without expected UI navigation traces\n- False positive control: confirm whether browser includes credentials and request passes server checks\n\n## Secure Implementation\nUse synchronized or double-submit CSRF tokens for cookie-authenticated flows, enforce SameSite cookie policy appropriate to product constraints, and validate Origin/Referer for sensitive endpoints. Add Fetch metadata policy checks to reject cross-site unsafe requests by default. Keep authorization checks independent of CSRF validation.\n\n## Hardening Checklist\n- [x] CSRF tokens on all state-changing browser paths\n- [x] SameSite and Secure cookie attributes tuned per flow\n- [x] Origin/Referer validation for high-risk actions\n- [x] Fetch metadata enforcement for cross-site blocking\n- [x] Endpoint-level tests for CSRF bypass regressions\n\n## Mapping and References\n- OWASP: CSRF prevention guidance and session controls\n- CWE: CWE-352\n- WSTG: authentication/session and request-handling tests\n- ASVS: session and request integrity requirements\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html\n2. https://portswigger.net/web-security/csrf\n3. https://owasp.org/www-project-web-security-testing-guide/v42/\n4. https://owasp.org/www-project-application-security-verification-standard/\n",
+    "category": "authentication",
+    "categories": [
+      "authn-authz",
+      "react-and-frontend"
+    ],
+    "tags": [
+      "csrf",
+      "session-management",
+      "security-headers",
+      "wstg"
+    ],
+    "author": "Security Team",
+    "read_time": 14,
+    "difficulty_level": "practitioner",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "https://portswigger.net/web-security/csrf",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/www-project-application-security-verification-standard/"
+    ],
+    "cwe_ids": [
+      "CWE-352"
+    ],
+    "owasp_refs": [
+      "OWASP CSRF Prevention",
+      "OWASP ASVS v5 Request Integrity"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "WebSocket Security for Real-Time Apps: Auth, Authorization, and Abuse Controls",
+    "slug": "websocket-security-realtime-apps-auth-authorization-abuse-controls",
+    "canonical_slug": "websocket-security-realtime-apps-auth-authorization-abuse-controls",
+    "excerpt": "Defensive design patterns for WebSocket channel authentication, per-message authorization, and denial-of-service resilience.",
+    "content": "# WebSocket Security for Real-Time Apps: Auth, Authorization, and Abuse Controls\n\n## Audience and Level\n- Target audience: backend realtime engineers and AppSec specialists\n- Difficulty: specialist\n- Estimated read time: 15 minutes\n\n## Why This Matters\nWebSockets shift from request-response to long-lived bidirectional channels. Security controls built for stateless HTTP calls are frequently bypassed when teams authenticate once at handshake and never re-evaluate authorization during message flow.\n\n## Threat Model Snapshot\n- Assets at risk: live trading/chat/game state, privileged actions, internal event streams\n- Entry points: handshake auth, message routing, subscription updates\n- Trust boundaries: edge websocket gateway to internal event processors\n- Typical attacker goals: unauthorized subscription, command abuse, resource exhaustion\n\n## Attack Mechanics\nAttackers exploit weak channel authentication, stolen tokens, and missing per-message policy checks. They subscribe to unauthorized topics, send malformed high-rate messages, and abuse broadcast pathways for amplification.\n\n## Detection and Verification\n- Manual checks: handshake auth, reconnect handling, authorization per message type\n- Dynamic checks: token swap tests, topic escalation attempts, rate abuse scenarios\n- Telemetry indicators: abnormal subscription patterns, message burst anomalies, channel churn spikes\n- False positive control: verify policy decision logs for rejected and accepted messages\n\n## Secure Implementation\nAuthenticate at handshake and bind channel identity to immutable session context. Enforce authorization at message handler level for every action and subscription. Apply strict schema validation and per-channel rate limits. Implement heartbeat and idle timeout controls, and isolate internal pub/sub topics from direct client control.\n\n## Hardening Checklist\n- [x] Strong handshake auth and channel binding\n- [x] Per-message authorization enforcement\n- [x] Message schema validation and input normalization\n- [x] Adaptive rate limits and abuse throttles\n- [x] Observability for topic access and denial events\n\n## Mapping and References\n- OWASP: API and websocket security guidance\n- CWE: CWE-862, CWE-770\n- WSTG: authorization and service abuse testing\n- ASVS: access control and availability safeguards\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/WebSocket_Security_Cheat_Sheet.html\n2. https://portswigger.net/web-security/websockets\n3. https://owasp.org/www-project-web-security-testing-guide/v42/\n4. https://owasp.org/API-Security/\n",
+    "category": "api_security",
+    "categories": [
+      "rest-graphql-websocket",
+      "api-auth-and-rate-limits"
+    ],
+    "tags": [
+      "api-abuse",
+      "wstg",
+      "jwt-security",
+      "owasp-top-10"
+    ],
+    "author": "Security Team",
+    "read_time": 15,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/WebSocket_Security_Cheat_Sheet.html",
+      "https://portswigger.net/web-security/websockets",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/API-Security/"
+    ],
+    "cwe_ids": [
+      "CWE-862",
+      "CWE-770"
+    ],
+    "owasp_refs": [
+      "OWASP API Security",
+      "OWASP ASVS Access Control"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  },
+  {
+    "title": "File Upload Attack Chains: From Polyglots to Processing Pipeline Compromise",
+    "slug": "file-upload-attack-chains-polyglots-processing-pipeline-compromise",
+    "canonical_slug": "file-upload-attack-chains-polyglots-processing-pipeline-compromise",
+    "excerpt": "Advanced file-upload security engineering: validation, transformation, sandboxing, and post-upload execution risk reduction.",
+    "content": "# File Upload Attack Chains: From Polyglots to Processing Pipeline Compromise\n\n## Audience and Level\n- Target audience: backend engineers, storage architects, AppSec specialists\n- Difficulty: specialist\n- Estimated read time: 16 minutes\n\n## Why This Matters\nFile upload features are complex attack surfaces because they involve parsing, storage, transformation, and delivery components. Attackers abuse this pipeline using polyglot files, parser differentials, metadata payloads, and unsafe post-processing jobs to reach remote code execution or data exposure outcomes.\n\n## Threat Model Snapshot\n- Assets at risk: processing workers, object storage, downstream consumers, user data\n- Entry points: upload endpoints, drag-and-drop APIs, import jobs, media transformers\n- Trust boundaries: public upload boundary to internal processing boundary\n- Typical attacker goals: code execution, stored XSS, malware hosting, data exfiltration\n\n## Attack Mechanics\nAttackers test extension/MIME mismatches, archive traversal, parser confusion, and oversized payload behaviors. They target transformation steps like image conversion and document extraction, where vulnerable libraries parse attacker-controlled structures. They also exploit public file serving misconfigurations to run active content.\n\n## Detection and Verification\n- Manual checks: upload validation, storage policy, transformation sandbox isolation\n- Dynamic checks: malicious polyglots, zip-slip payloads, parser bomb files, metadata script payloads\n- Telemetry indicators: converter crashes, anomalous CPU spikes, unusual storage retrieval patterns\n- False positive control: verify exploitability in isolated processing path, not just signature match\n\n## Secure Implementation\nEnforce strict extension and MIME allowlists with server-side content inspection. Re-encode untrusted files before storage when possible. Process uploads in isolated sandbox workers with minimal privileges and no direct production network access. Store files outside web root, use randomized object keys, and enforce signed URL access controls.\n\n## Hardening Checklist\n- [x] Allowlist extensions and validated MIME signatures\n- [x] Sandbox and isolate transformation workers\n- [x] Block archive traversal and nested decompression abuse\n- [x] Serve files via safe content disposition where needed\n- [x] Continuous malicious corpus regression tests\n\n## Mapping and References\n- OWASP: file upload and injection-adjacent controls\n- CWE: CWE-434, CWE-22\n- WSTG: input validation and file handling tests\n- ASVS: file handling and data processing safeguards\n\n## References\n1. https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html\n2. https://owasp.org/www-project-web-security-testing-guide/v42/\n3. https://owasp.org/Top10/2025/\n4. https://cwe.mitre.org/data/definitions/434.html\n",
+    "category": "best_practices",
+    "categories": [
+      "secure-coding",
+      "verification-and-fp-reduction"
+    ],
+    "tags": [
+      "input-validation",
+      "secure-code-review",
+      "wstg",
+      "supply-chain"
+    ],
+    "author": "Security Team",
+    "read_time": 16,
+    "difficulty_level": "specialist",
+    "status": "review",
+    "is_published": false,
+    "source_count": 4,
+    "references": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html",
+      "https://owasp.org/www-project-web-security-testing-guide/v42/",
+      "https://owasp.org/Top10/2025/",
+      "https://cwe.mitre.org/data/definitions/434.html"
+    ],
+    "cwe_ids": [
+      "CWE-434",
+      "CWE-22"
+    ],
+    "owasp_refs": [
+      "OWASP Top 10 2025",
+      "OWASP ASVS File Handling"
+    ],
+    "related_article_ids": [],
+    "version": "1.0"
+  }
+]

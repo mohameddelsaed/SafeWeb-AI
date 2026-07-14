@@ -1,0 +1,14 @@
+name: "Web Application Quick Engagement"
+profile_id: "web-app-quick"
+description: "Standard rapid autonomous pentest playbook for modern web apps."
+phase_timeouts:
+  recon: 300
+  vuln_scan: 600
+  exploit: 450
+  validator: 300
+tool_allowlist:
+  - subfinder
+  - httpx
+  - nuclei
+  - ffuf
+max_cost_usd: 5.0

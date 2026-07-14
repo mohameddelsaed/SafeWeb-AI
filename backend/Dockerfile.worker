@@ -1,0 +1,21 @@
+FROM python:3.10-slim
+
+# Install system dependencies (including standard tools required by external wrappers)
+RUN apt-get update && apt-get install -y \
+    wget \
+    curl \
+    git \
+    nmap \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source code
+COPY . .
+
+# Isolate Celery process and cap memory limits (200MB per child max)
+CMD ["celery", "-A", "config.celery_app", "worker", "-l", "info", "--concurrency=4", "--max-memory-per-child=200000"]

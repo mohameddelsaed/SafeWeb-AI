@@ -1,0 +1,4 @@
+- `src/App.tsx`
+- `src/main.tsx`
+- `src/contexts/AuthContext.tsx`
+- `src/components/ProtectedRoute.tsx`
