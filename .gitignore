@@ -91,6 +91,11 @@ __pycache__/
 playwright-report/
 test-results/
 *.txt
-backend/*.txt
 runtime_toggle_proof_result.json
 .env*.local
+backend/test*.txt
+backend/*_output.txt
+backend/*_results*.txt
+backend/scan_*.txt
+backend/check_*.txt
+backend/regression*.txt
